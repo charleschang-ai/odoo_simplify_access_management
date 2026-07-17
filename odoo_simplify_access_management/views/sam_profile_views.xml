@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="sam_profile_view_list" model="ir.ui.view">
+        <field name="name">sam.profile.view.list</field>
+        <field name="model">sam.profile</field>
+        <field name="arch" type="xml">
+            <list string="Access Manage Studio">
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="user_ids" widget="many2many_tags"/>
+                <field name="group_ids" widget="many2many_tags" optional="hide"/>
+                <field name="company_ids" widget="many2many_tags" optional="show"/>
+                <field name="readonly_user" optional="show"/>
+                <field name="disable_developer_mode" optional="show"/>
+                <field name="active" column_invisible="1"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="sam_profile_view_form" model="ir.ui.view">
+        <field name="name">sam.profile.view.form</field>
+        <field name="model">sam.profile</field>
+        <field name="arch" type="xml">
+            <form string="Access Manage Studio">
+                <sheet>
+                    <widget name="web_ribbon" title="Archived" bg_color="text-bg-danger"
+                            invisible="active"/>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder="e.g. Sales dept. read-only config"/></h1>
+                    </div>
+                    <group>
+                        <group string="Scope">
+                            <field name="active" invisible="1"/>
+                            <field name="user_ids" widget="many2many_tags"
+                                   options="{'no_create': True}"/>
+                            <field name="group_ids" widget="many2many_tags"
+                                   options="{'no_create': True}"/>
+                            <field name="company_ids" widget="many2many_tags"
+                                   options="{'no_create': True}"/>
+                        </group>
+                        <group string="Global Restrictions">
+                            <field name="readonly_user"/>
+                            <field name="disable_developer_mode"/>
+                            <field name="disable_module_actions"/>
+                            <field name="disable_import"/>
+                            <field name="disable_export"/>
+                            <field name="restrict_xmlrpc"/>
+                            <field name="disable_login"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Hidden Menus" name="menus">
+                            <field name="hide_menu_ids"
+                                   context="{'ir.ui.menu.full_list': True}">
+                                <list>
+                                    <field name="complete_name"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Model Rules" name="models">
+                            <field name="model_line_ids">
+                                <list editable="bottom">
+                                    <field name="model_id" options="{'no_create': True}"/>
+                                    <field name="model_name" column_invisible="1"/>
+                                    <field name="readonly"/>
+                                    <field name="hide_create"/>
+                                    <field name="hide_edit"/>
+                                    <field name="hide_delete"/>
+                                    <field name="hide_duplicate"/>
+                                    <field name="hide_archive"/>
+                                    <field name="hide_export"/>
+                                    <field name="hide_import"/>
+                                    <field name="hide_search"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Field Rules" name="fields">
+                            <field name="field_line_ids">
+                                <list editable="bottom">
+                                    <field name="model_id" options="{'no_create': True}"/>
+                                    <field name="field_id" options="{'no_create': True}"/>
+                                    <field name="invisible"/>
+                                    <field name="readonly"/>
+                                    <field name="required"/>
+                                    <field name="remove_link"/>
+                                    <field name="no_create"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Record Rules" name="records">
+                            <field name="domain_line_ids">
+                                <list editable="bottom">
+                                    <field name="model_id" options="{'no_create': True}"/>
+                                    <field name="domain"/>
+                                    <field name="perm_read"/>
+                                    <field name="perm_write"/>
+                                    <field name="perm_create"/>
+                                    <field name="perm_unlink"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Buttons/Tabs" name="buttons">
+                            <field name="button_line_ids">
+                                <list editable="bottom">
+                                    <field name="model_id" options="{'no_create': True}"/>
+                                    <field name="element_type"/>
+                                    <field name="name"/>
+                                    <field name="string"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Filters/Group Bys" name="filters">
+                            <field name="filter_line_ids">
+                                <list editable="bottom">
+                                    <field name="model_id" options="{'no_create': True}"/>
+                                    <field name="name"/>
+                                    <field name="string"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Hidden Views" name="views">
+                            <field name="view_line_ids">
+                                <list editable="bottom">
+                                    <field name="model_id" options="{'no_create': True}"/>
+                                    <field name="view_type"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Chatter" name="chatter">
+                            <group string="All Models (Global)">
+                                <group>
+                                    <field name="hide_chatter_global"/>
+                                    <field name="hide_send_message_global"/>
+                                </group>
+                                <group>
+                                    <field name="hide_log_note_global"/>
+                                    <field name="hide_activities_global"/>
+                                </group>
+                            </group>
+                            <field name="chatter_line_ids">
+                                <list editable="bottom">
+                                    <field name="model_id" options="{'no_create': True}"/>
+                                    <field name="hide_chatter"/>
+                                    <field name="hide_send_message"/>
+                                    <field name="hide_log_note"/>
+                                    <field name="hide_activities"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="White Label" name="debranding">
+                            <group>
+                                <group string="Hide Odoo Branding (site-wide, not user-specific)">
+                                    <field name="debranding"/>
+                                    <field name="brand_name" invisible="not debranding"
+                                           placeholder="Leave empty to use company name"/>
+                                    <field name="url_prefix" invisible="not debranding"
+                                           placeholder="e.g. app"/>
+                                    <field name="favicon" widget="image" invisible="not debranding"
+                                           class="oe_avatar" options="{'preview_image': 'favicon'}"/>
+                                </group>
+                                <group>
+                                    <div class="text-muted" colspan="2">
+                                        When enabled, globally hides: "Powered by Odoo" on login page,
+                                        browser tab title, notification email footer branding,
+                                        odoo.com links in user menu (Documentation/Support/My Odoo.com account),
+                                        and the PWA app name. Entering a URL prefix replaces /odoo in URLs
+                                        with the custom word (old /odoo links redirect with 301).
+                                    </div>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Reports/Actions" name="reports_actions">
+                            <group>
+                                <field name="hidden_report_ids" widget="many2many_tags"
+                                       options="{'no_create': True}"/>
+                                <field name="hidden_action_ids" widget="many2many_tags"
+                                       options="{'no_create': True}"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="sam_profile_view_search" model="ir.ui.view">
+        <field name="name">sam.profile.view.search</field>
+        <field name="model">sam.profile</field>
+        <field name="arch" type="xml">
+            <search string="Access Manage Studio">
+                <field name="name"/>
+                <field name="user_ids"/>
+                <field name="group_ids"/>
+                <filter string="Archived" name="inactive" domain="[('active', '=', False)]"/>
+                <group expand="0" string="Group By">
+                    <filter string="Company" name="group_company"
+                            context="{'group_by': 'company_ids'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="sam_profile_action" model="ir.actions.act_window">
+        <field name="name">Access Manage Studio</field>
+        <field name="res_model">sam.profile</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="sam_profile_view_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first access configuration
+            </p>
+            <p>
+                Select users/user groups and companies, then restrict
+                models, fields, records, menus, buttons, filters, views,
+                reports, chatter, developer mode, and more as needed.
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="sam_menu_root"
+              name="Access Manage Studio"
+              groups="group_sam_manager"
+              web_icon="odoo_simplify_access_management,static/description/icon.png"
+              sequence="90"/>
+
+    <menuitem id="sam_menu_main"
+              name="Access Manage Studio"
+              parent="sam_menu_root"
+              action="sam_profile_action"
+              sequence="10"/>
+
+</odoo>

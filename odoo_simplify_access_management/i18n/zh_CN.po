@@ -1,0 +1,962 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* odoo_simplify_access_management
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-07-17 09:21+0000\n"
+"PO-Revision-Date: 2026-07-17 09:21+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: odoo_simplify_access_management
+#. odoo-python
+#: code:addons/odoo_simplify_access_management/models/base_override.py:0
+msgid ""
+"%(message)s (Model: %(model)s)\n"
+"This operation is restricted by Access Manage Studio. "
+"Contact your administrator if you have questions."
+msgstr ""
+"%(message)s(模型:%(model)s)\n"
+"该操作已被 Access Manage Studio 访问配置限制,如有疑问请联系管理员。"
+
+#. module: odoo_simplify_access_management
+#: model:ir.actions.act_window,name:odoo_simplify_access_management.sam_profile_action
+#: model:ir.module.category,name:odoo_simplify_access_management.module_category_sam
+#: model:ir.ui.menu,name:odoo_simplify_access_management.sam_menu_main
+#: model:ir.ui.menu,name:odoo_simplify_access_management.sam_menu_root
+#: model_terms:ir.ui.view,arch_db:odoo_simplify_access_management.sam_profile_view_form
+#: model_terms:ir.ui.view,arch_db:odoo_simplify_access_management.sam_profile_view_list
+#: model_terms:ir.ui.view,arch_db:odoo_simplify_access_management.sam_profile_view_search
+msgid "Access Manage Studio"
+msgstr "Access Manage Studio"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model,name:odoo_simplify_access_management.model_sam_field_line
+msgid "SAM Field Rule"
+msgstr "Access Manage Studio 字段权限"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model,name:odoo_simplify_access_management.model_sam_button_line
+msgid "SAM Button Rule"
+msgstr "Access Manage Studio 按钮/页签"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model,name:odoo_simplify_access_management.model_sam_model_line
+msgid "SAM Model Rule"
+msgstr "Access Manage Studio 模型权限"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model,name:odoo_simplify_access_management.model_sam_chatter_line
+msgid "SAM Chatter Rule"
+msgstr "Access Manage Studio 沟通栏"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model,name:odoo_simplify_access_management.model_sam_filter_line
+msgid "SAM Filter Rule"
+msgstr "Access Manage Studio 筛选/分组"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model,name:odoo_simplify_access_management.model_sam_cache_mixin
+msgid "SAM Cache Invalidation Mixin"
+msgstr "Access Manage Studio 缓存失效 Mixin"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model,name:odoo_simplify_access_management.model_sam_domain_line
+msgid "SAM Record Rule"
+msgstr "Access Manage Studio 记录权限"
+
+#. module: odoo_simplify_access_management
+#: model:ir.module.category,description:odoo_simplify_access_management.module_category_sam
+msgid "Access Manage Studio"
+msgstr "Access Manage Studio 访问权限管理"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model,name:odoo_simplify_access_management.model_sam_profile
+msgid "SAM Profile"
+msgstr "Access Manage Studio 访问配置"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model,name:odoo_simplify_access_management.model_sam_view_line
+msgid "SAM View Rule"
+msgstr "Access Manage Studio 隐藏视图"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model,name:odoo_simplify_access_management.model_ir_actions_act_window
+msgid "Action Window"
+msgstr "动作窗口"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model,name:odoo_simplify_access_management.model_ir_actions_actions
+msgid "Actions"
+msgstr "操作"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model,name:odoo_simplify_access_management.model_mail_activity
+msgid "Activity"
+msgstr "活动"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model,name:odoo_simplify_access_management.model_base
+msgid "Base"
+msgstr "基础"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model,name:odoo_simplify_access_management.model_base_import_import
+msgid "Base Import"
+msgstr "基础导入"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_button_line__create_uid
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_chatter_line__create_uid
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_domain_line__create_uid
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_field_line__create_uid
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_filter_line__create_uid
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_model_line__create_uid
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_profile__create_uid
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_view_line__create_uid
+msgid "Created by"
+msgstr "创建者"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_button_line__create_date
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_chatter_line__create_date
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_domain_line__create_date
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_field_line__create_date
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_filter_line__create_date
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_model_line__create_date
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_profile__create_date
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_view_line__create_date
+msgid "Created on"
+msgstr "创建时间"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_button_line__display_name
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_chatter_line__display_name
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_domain_line__display_name
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_field_line__display_name
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_filter_line__display_name
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_model_line__display_name
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_profile__display_name
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_view_line__display_name
+msgid "Display Name"
+msgstr "显示名称"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model,name:odoo_simplify_access_management.model_mail_template_preview
+msgid "Email Template Preview"
+msgstr "邮件模板预览"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model,name:odoo_simplify_access_management.model_mail_template
+msgid "Email Templates"
+msgstr "邮件模板"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model,name:odoo_simplify_access_management.model_mail_thread
+msgid "Email Thread"
+msgstr "邮件会话"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model,name:odoo_simplify_access_management.model_ir_http
+msgid "HTTP Routing"
+msgstr "HTTP 路由"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_button_line__id
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_chatter_line__id
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_domain_line__id
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_field_line__id
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_filter_line__id
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_model_line__id
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_profile__id
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_view_line__id
+msgid "ID"
+msgstr "ID"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_button_line__write_uid
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_chatter_line__write_uid
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_domain_line__write_uid
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_field_line__write_uid
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_filter_line__write_uid
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_model_line__write_uid
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_profile__write_uid
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_view_line__write_uid
+msgid "Last Updated by"
+msgstr "最后更新者"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_button_line__write_date
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_chatter_line__write_date
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_domain_line__write_date
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_field_line__write_date
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_filter_line__write_date
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_model_line__write_date
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_profile__write_date
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_view_line__write_date
+msgid "Last Updated on"
+msgstr "最后更新时间"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model,name:odoo_simplify_access_management.model_mail_render_mixin
+msgid "Mail Render Mixin"
+msgstr "邮件渲染混合"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model,name:odoo_simplify_access_management.model_mail_tracking_value
+msgid "Mail Tracking Value"
+msgstr "邮件跟踪值"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model,name:odoo_simplify_access_management.model_ir_ui_menu
+msgid "Menu"
+msgstr "菜单"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model,name:odoo_simplify_access_management.model_ir_module_module
+msgid "Module"
+msgstr "模块"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_profile__url_prefix
+msgid "URL Prefix"
+msgstr "URL 前缀"
+
+#. module: odoo_simplify_access_management
+#. odoo-python
+#: code:addons/odoo_simplify_access_management/models/sam_profile.py:0
+msgid ""
+"URL prefix %r is invalid: reserved words "
+"(web/odoo/mail etc.) not allowed, only letters, "
+"digits, hyphens, and underscores."
+msgstr ""
+"URL 前缀 %r 无效:不能使用系统保留词(web/odoo/mail 等),"
+"且只允许字母、数字、中划线、下划线。"
+
+#. module: odoo_simplify_access_management
+#: model_terms:ir.ui.view,arch_db:odoo_simplify_access_management.debrand_mail_layout_footer
+#: model_terms:ir.ui.view,arch_db:odoo_simplify_access_management.debrand_mail_light_footer
+msgid "Unfollow"
+msgstr "取消关注"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model,name:odoo_simplify_access_management.model_res_users
+msgid "User"
+msgstr "用户"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model.fields,help:odoo_simplify_access_management.field_sam_filter_line__name
+msgid ""
+"The name attribute of the &lt;filter&gt; node in "
+"search views. Applies to both filters and group bys."
+msgstr "search 视图中 &lt;filter&gt; 节点的 name 属性,筛选与分组均适用。"
+
+#. module: odoo_simplify_access_management
+#: model_terms:ir.ui.view,arch_db:odoo_simplify_access_management.sam_profile_view_form
+msgid "e.g. app"
+msgstr "例如:app"
+
+#. module: odoo_simplify_access_management
+#: model_terms:ir.ui.view,arch_db:odoo_simplify_access_management.sam_profile_view_form
+msgid "e.g. Sales dept. read-only config"
+msgstr "例如:销售部只读配置"
+
+#. module: odoo_simplify_access_management
+#: model_terms:ir.ui.view,arch_db:odoo_simplify_access_management.sam_profile_view_form
+msgid "All Models (Global)"
+msgstr "全局(所有模型)"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model.fields,help:odoo_simplify_access_management.field_sam_profile__debranding
+msgid ""
+"Globally hide: \"Powered by Odoo\" on login page, browser tab "
+"title, notification email footer branding, odoo.com links in "
+"the user menu, etc."
+msgstr "全局生效:隐藏登录页 \"Powered by Odoo\"、浏览器标签页标题、通知邮件底部品牌、用户菜单中的 odoo.com 链接等。"
+
+#. module: odoo_simplify_access_management
+#: model_terms:ir.ui.view,arch_db:odoo_simplify_access_management.sam_profile_view_form
+msgid "Global Restrictions"
+msgstr "全局限制"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_profile__readonly_user
+msgid "Global Read-only"
+msgstr "全部只读"
+
+#. module: odoo_simplify_access_management
+#: model_terms:ir.ui.view,arch_db:odoo_simplify_access_management.sam_profile_view_search
+msgid "Company"
+msgstr "公司"
+
+#. module: odoo_simplify_access_management
+#: model_terms:ir.ui.view,arch_db:odoo_simplify_access_management.sam_profile_view_search
+msgid "Group By"
+msgstr "分组"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model.fields.selection,name:odoo_simplify_access_management.selection__sam_view_line__view_type__list
+msgid "List"
+msgstr "列表 (List)"
+
+#. module: odoo_simplify_access_management
+#: model_terms:ir.actions.act_window,help:odoo_simplify_access_management.sam_profile_action
+msgid "Create your first access configuration"
+msgstr "创建第一条访问配置"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model.fields,help:odoo_simplify_access_management.field_sam_field_line__no_create
+msgid ""
+"Remove \"New...\" and \"Create and Edit\" options from "
+"relational field dropdowns."
+msgstr "去掉关系字段下拉中的「新建...」与「创建并编辑」选项。"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model.fields,help:odoo_simplify_access_management.field_sam_field_line__remove_link
+msgid ""
+"Remove the internal link arrow next to relational fields, "
+"preventing navigation to the related record's full form."
+msgstr "去掉关系字段旁的内部链接箭头,阻止跳转查看关联记录完整表单。"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_field_line__remove_link
+msgid "Remove Internal Link"
+msgstr "去除内部链接"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_field_line__readonly
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_model_line__readonly
+msgid "Read-only"
+msgstr "只读"
+
+#. module: odoo_simplify_access_management
+#: model:res.groups,comment:odoo_simplify_access_management.group_sam_manager
+msgid "Can create and manage Access Manage Studio configurations."
+msgstr "可以创建和管理 Access Manage Studio 访问配置。"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model.fields.selection,name:odoo_simplify_access_management.selection__sam_view_line__view_type__cohort
+msgid "Cohort"
+msgstr "同期群 (Cohort)"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_profile__name
+msgid "Name"
+msgstr "名称"
+
+#. module: odoo_simplify_access_management
+#: model_terms:ir.ui.view,arch_db:odoo_simplify_access_management.sam_profile_view_form
+msgid ""
+"When enabled, globally hides: \"Powered by Odoo\" on login page,\n"
+"                                        browser tab title, notification email footer branding,\n"
+"                                        odoo.com links in user menu (Documentation/Support/My Odoo.com account),\n"
+"                                        and the PWA app name. Entering a URL prefix replaces /odoo in URLs\n"
+"                                        with the custom word (old /odoo links redirect with 301)."
+msgstr ""
+"启用后全局隐藏:登录页 \"Powered by Odoo\"、\n"
+"                                        浏览器标签页标题、通知邮件底部品牌、\n"
+"                                        用户菜单中的 odoo.com 链接(文档/支持/My Odoo.com account)、\n"
+"                                        PWA 应用名;填写 URL 前缀可将网址中的 /odoo 替换为自定义词\n"
+"                                        (旧 /odoo 链接自动 301 跳转)。"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_profile__brand_name
+msgid "Brand Name"
+msgstr "品牌名称"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model.fields.selection,name:odoo_simplify_access_management.selection__sam_view_line__view_type__graph
+msgid "Graph"
+msgstr "图表 (Graph)"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model.fields.selection,name:odoo_simplify_access_management.selection__sam_view_line__view_type__map
+msgid "Map"
+msgstr "地图 (Map)"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_domain_line__domain
+msgid "Domain"
+msgstr "域 (Domain)"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model.fields,help:odoo_simplify_access_management.field_sam_domain_line__domain
+msgid ""
+"e.g. [('user_id', '=', user.id)], available variables: "
+"user / uid / company_id / company_ids / time."
+msgstr ""
+"如 [('user_id', '=', user.id)],可用变量:user / uid / company_id / company_ids / "
+"time。"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_field_line__field_id
+msgid "Field"
+msgstr "字段"
+
+#. module: odoo_simplify_access_management
+#. odoo-python
+#: code:addons/odoo_simplify_access_management/models/base_override.py:0
+msgid "Field %s is read-only/hidden, modification denied"
+msgstr "字段 %s 为只读/隐藏,禁止修改"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_field_line__field_name
+msgid "Field Name"
+msgstr "字段名"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_profile__field_line_ids
+#: model_terms:ir.ui.view,arch_db:odoo_simplify_access_management.sam_profile_view_form
+msgid "Field Rules"
+msgstr "字段权限"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model.fields.selection,name:odoo_simplify_access_management.selection__sam_view_line__view_type__hierarchy
+msgid "Hierarchy"
+msgstr "层级 (Hierarchy)"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model.fields,help:odoo_simplify_access_management.field_sam_profile__group_ids
+msgid "Users belonging to these groups also receive this configuration."
+msgstr "属于这些用户组的用户同样应用本配置。"
+
+#. module: odoo_simplify_access_management
+#: model_terms:ir.ui.view,arch_db:odoo_simplify_access_management.sam_profile_view_form
+#: model_terms:ir.ui.view,arch_db:odoo_simplify_access_management.sam_profile_view_search
+msgid "Archived"
+msgstr "已归档"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_profile__sequence
+msgid "Sequence"
+msgstr "序号"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_domain_line__perm_write
+msgid "Apply to Write"
+msgstr "应用于写入"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_domain_line__perm_create
+msgid "Apply to Create"
+msgstr "应用于创建"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_domain_line__perm_unlink
+msgid "Apply to Delete"
+msgstr "应用于删除"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_domain_line__perm_read
+msgid "Apply to Read"
+msgstr "应用于读取"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_profile__company_ids
+msgid "Companies"
+msgstr "应用公司"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_profile__user_ids
+msgid "Users"
+msgstr "应用用户"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_profile__group_ids
+msgid "User Groups"
+msgstr "应用用户组"
+
+#. module: odoo_simplify_access_management
+#: model_terms:ir.ui.view,arch_db:odoo_simplify_access_management.sam_profile_view_form
+msgid "Scope"
+msgstr "应用范围"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_field_line__required
+msgid "Required"
+msgstr "必填"
+
+#. module: odoo_simplify_access_management
+#. odoo-python
+#: code:addons/odoo_simplify_access_management/models/ir_module.py:0
+msgid ""
+"You are not allowed to install/upgrade/uninstall modules "
+"due to Access Manage Studio restrictions. "
+"Contact your administrator if you have questions."
+msgstr "您已被 Access Manage Studio 访问配置禁止安装/升级/卸载模块,如有疑问请联系管理员。"
+
+#. module: odoo_simplify_access_management
+#. odoo-python
+#: code:addons/odoo_simplify_access_management/models/base_import.py:0
+msgid ""
+"Import of %s is blocked by Access Manage Studio restrictions. "
+"Contact your administrator if you have questions."
+msgstr "您已被 Access Manage Studio 访问配置禁止导入 %s,如有疑问请联系管理员。"
+
+#. module: odoo_simplify_access_management
+#. odoo-python
+#: code:addons/odoo_simplify_access_management/models/mail_thread.py:0
+msgid "You are not allowed to send messages on %s."
+msgstr "您已被禁止在 %s 上发送消息。"
+
+#. module: odoo_simplify_access_management
+#. odoo-python
+#: code:addons/odoo_simplify_access_management/models/mail_thread.py:0
+msgid "You are not allowed to schedule activities on %s."
+msgstr "您已被禁止在 %s 上安排活动。"
+
+#. module: odoo_simplify_access_management
+#. odoo-python
+#: code:addons/odoo_simplify_access_management/models/mail_thread.py:0
+msgid "You are not allowed to log notes on %s."
+msgstr "您已被禁止在 %s 上记录备注。"
+
+#. module: odoo_simplify_access_management
+#. odoo-python
+#: code:addons/odoo_simplify_access_management/models/base_override.py:0
+msgid "You do not have create permission"
+msgstr "您没有创建权限"
+
+#. module: odoo_simplify_access_management
+#. odoo-python
+#: code:addons/odoo_simplify_access_management/models/base_override.py:0
+msgid "You do not have delete permission"
+msgstr "您没有删除权限"
+
+#. module: odoo_simplify_access_management
+#. odoo-python
+#: code:addons/odoo_simplify_access_management/models/base_override.py:0
+msgid "You do not have duplicate permission"
+msgstr "您没有复制权限"
+
+#. module: odoo_simplify_access_management
+#. odoo-python
+#: code:addons/odoo_simplify_access_management/models/base_override.py:0
+msgid "You do not have export permission"
+msgstr "您没有导出权限"
+
+#. module: odoo_simplify_access_management
+#. odoo-python
+#: code:addons/odoo_simplify_access_management/models/base_override.py:0
+msgid "You do not have archive/unarchive permission"
+msgstr "您没有归档/取消归档权限"
+
+#. module: odoo_simplify_access_management
+#. odoo-python
+#: code:addons/odoo_simplify_access_management/models/base_override.py:0
+msgid "You do not have edit permission"
+msgstr "您没有编辑权限"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_button_line__name
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_filter_line__name
+msgid "Technical Name"
+msgstr "技术名称 (name)"
+
+#. module: odoo_simplify_access_management
+#: model_terms:ir.ui.view,arch_db:odoo_simplify_access_management.sam_profile_view_form
+msgid "Reports/Actions"
+msgstr "报表/动作"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model.fields,help:odoo_simplify_access_management.field_sam_button_line__string
+msgid "Match by string label. Use either this or technical name."
+msgstr "按 string 标签文字匹配,与技术名称二选一即可。"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model.fields.selection,name:odoo_simplify_access_management.selection__sam_button_line__element_type__button
+msgid "Button / Smart Button"
+msgstr "按钮 / 智能按钮"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_profile__button_line_ids
+#: model_terms:ir.ui.view,arch_db:odoo_simplify_access_management.sam_profile_view_form
+msgid "Buttons/Tabs"
+msgstr "按钮/页签"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model.fields,help:odoo_simplify_access_management.field_sam_button_line__name
+msgid ""
+"The name attribute of the button (method name or "
+"action ID) / the name attribute of the tab."
+msgstr "按钮的 name 属性(方法名或动作 id)/ 页签的 name 属性。"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model.fields.selection,name:odoo_simplify_access_management.selection__sam_view_line__view_type__calendar
+msgid "Calendar"
+msgstr "日历 (Calendar)"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_button_line__string
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_filter_line__string
+msgid "Display Text"
+msgstr "显示文字 (string)"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model.fields,help:odoo_simplify_access_management.field_sam_profile__brand_name
+msgid ""
+"Name to replace \"Odoo\" (browser title, PWA app name). "
+"Uses the company name if left empty."
+msgstr "替代 \"Odoo\" 显示的名称(浏览器标题、PWA 应用名),留空则使用公司名。"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model.fields,help:odoo_simplify_access_management.field_sam_profile__favicon
+msgid ""
+"Replace the browser tab icon, supports ico/png. "
+"Odoo default used if empty."
+msgstr "替换浏览器标签页图标,支持 ico/png,留空使用 Odoo 默认图标。"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model.fields,help:odoo_simplify_access_management.field_sam_profile__url_prefix
+msgid ""
+"Replace the /odoo prefix in URLs, e.g. entering \"app\" makes "
+"the backend accessible at /app. Leave empty for no change. "
+"Only letters, digits, hyphens, and underscores allowed."
+msgstr "替换网址中的 /odoo 前缀,如填 app 则后台地址变为 /app;留空不修改。只允许字母、数字、中划线、下划线。"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_profile__active
+msgid "Active"
+msgstr "有效"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_button_line__model_id
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_chatter_line__model_id
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_domain_line__model_id
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_field_line__model_id
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_filter_line__model_id
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_model_line__model_id
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_view_line__model_id
+msgid "Model"
+msgstr "模型"
+
+#. module: odoo_simplify_access_management
+#. odoo-python
+#: code:addons/odoo_simplify_access_management/models/sam_profile.py:0
+msgid "Invalid domain expression for model %(model)s: %(error)s"
+msgstr "模型 %(model)s 的域表达式无效:%(error)s"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_button_line__model_name
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_chatter_line__model_name
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_domain_line__model_name
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_field_line__model_name
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_filter_line__model_name
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_model_line__model_name
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_view_line__model_name
+msgid "Model Name"
+msgstr "模型名"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_profile__model_line_ids
+#: model_terms:ir.ui.view,arch_db:odoo_simplify_access_management.sam_profile_view_form
+msgid "Model Rules"
+msgstr "模型权限"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_profile__chatter_line_ids
+#: model_terms:ir.ui.view,arch_db:odoo_simplify_access_management.sam_profile_view_form
+msgid "Chatter"
+msgstr "沟通栏"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model.fields.selection,name:odoo_simplify_access_management.selection__sam_view_line__view_type__activity
+msgid "Activity"
+msgstr "活动 (Activity)"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model.fields.selection,name:odoo_simplify_access_management.selection__sam_view_line__view_type__gantt
+msgid "Gantt"
+msgstr "甘特图 (Gantt)"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_domain_line__rule_id
+msgid "Generated Record Rule"
+msgstr "生成的记录规则"
+
+#. module: odoo_simplify_access_management
+#: model_terms:ir.ui.view,arch_db:odoo_simplify_access_management.sam_profile_view_form
+msgid "Leave empty to use company name"
+msgstr "留空使用公司名"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model.fields,help:odoo_simplify_access_management.field_sam_profile__company_ids
+msgid ""
+"Leave empty to apply to all companies; only active when the "
+"user's current company is in the list."
+msgstr "留空表示对所有公司生效;设置后仅当用户当前公司在列表中时生效。"
+
+#. module: odoo_simplify_access_management
+#: model_terms:ir.ui.view,arch_db:odoo_simplify_access_management.sam_profile_view_form
+msgid "White Label"
+msgstr "白标"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model.fields.selection,name:odoo_simplify_access_management.selection__sam_view_line__view_type__kanban
+msgid "Kanban"
+msgstr "看板 (Kanban)"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_model_line__hide_create
+msgid "Block Create"
+msgstr "禁止创建"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_field_line__no_create
+msgid "Block Create & Edit Options"
+msgstr "禁止创建/编辑选项"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_model_line__hide_delete
+msgid "Block Delete"
+msgstr "禁止删除"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_chatter_line__hide_send_message
+msgid "Block Send Message"
+msgstr "禁止发送消息"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_profile__hide_send_message_global
+msgid "Block Send Message (All Models)"
+msgstr "禁止发送消息(全部模型)"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_model_line__hide_duplicate
+msgid "Block Duplicate"
+msgstr "禁止复制"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_chatter_line__hide_activities
+msgid "Block Schedule Activities"
+msgstr "禁止安排活动"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_profile__hide_activities_global
+msgid "Block Schedule Activities (All Models)"
+msgstr "禁止安排活动(全部模型)"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_profile__disable_module_actions
+msgid "Block Module Install/Upgrade/Uninstall"
+msgstr "禁止安装/升级/卸载模块"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_model_line__hide_import
+msgid "Block Import"
+msgstr "禁止导入"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_model_line__hide_export
+msgid "Block Export"
+msgstr "禁止导出"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_model_line__hide_archive
+msgid "Block Archive/Unarchive"
+msgstr "禁止归档/取消归档"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_model_line__hide_search
+msgid "Block Search"
+msgstr "禁止搜索"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_profile__disable_login
+msgid "Deny Login"
+msgstr "禁止登录"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_model_line__hide_edit
+msgid "Block Edit"
+msgstr "禁止编辑"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_chatter_line__hide_log_note
+msgid "Block Log Note"
+msgstr "禁止记录备注"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_profile__hide_log_note_global
+msgid "Block Log Note (All Models)"
+msgstr "禁止记录备注(全部模型)"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_profile__restrict_xmlrpc
+msgid "Disable XML-RPC / External API"
+msgstr "禁用 XML-RPC / 外部脚本"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_profile__disable_import
+msgid "Disable Import (All Models)"
+msgstr "禁用导入(全部模型)"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_profile__disable_export
+msgid "Disable Export (All Models)"
+msgstr "禁用导出(全部模型)"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_profile__disable_developer_mode
+msgid "Disable Developer Mode"
+msgstr "禁用开发者模式"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model.fields,help:odoo_simplify_access_management.field_sam_model_line__readonly
+msgid "Equivalent to blocking create, edit, delete, duplicate, and archive simultaneously."
+msgstr "等同于同时禁止创建/编辑/删除/复制/归档。"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_profile__filter_line_ids
+#: model_terms:ir.ui.view,arch_db:odoo_simplify_access_management.sam_profile_view_form
+msgid "Filters/Group Bys"
+msgstr "筛选/分组"
+
+#. module: odoo_simplify_access_management
+#: model:res.groups,name:odoo_simplify_access_management.group_sam_manager
+msgid "Manager"
+msgstr "管理员"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_button_line__element_type
+msgid "Type"
+msgstr "类型"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model.fields.selection,name:odoo_simplify_access_management.selection__sam_view_line__view_type__form
+msgid "Form"
+msgstr "表单 (Form)"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model.fields,help:odoo_simplify_access_management.field_sam_profile__hide_menu_ids
+msgid "Child menus of hidden menus are also hidden."
+msgstr "被隐藏菜单的所有子菜单同样隐藏。"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_view_line__view_type
+msgid "View Type"
+msgstr "视图类型"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_profile__domain_line_ids
+#: model_terms:ir.ui.view,arch_db:odoo_simplify_access_management.sam_profile_view_form
+msgid "Record Rules"
+msgstr "记录权限"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model.fields,help:odoo_simplify_access_management.field_sam_profile__readonly_user
+msgid "These users are read-only on all models: create, edit, delete, duplicate, and archive are denied."
+msgstr "这些用户对所有模型只读:禁止创建/编辑/删除/复制/归档。"
+
+#. module: odoo_simplify_access_management
+#: model_terms:ir.actions.act_window,help:odoo_simplify_access_management.sam_profile_action
+msgid ""
+"Select users/user groups and companies, then restrict\n"
+"                models, fields, records, menus, buttons, filters, views,\n"
+"                reports, chatter, developer mode, and more as needed."
+msgstr ""
+"选择用户/用户组与公司,再按需限制模型、字段、记录、菜单、\n"
+"                按钮、筛选、视图、报表、沟通栏以及开发者模式等。"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model.fields.selection,name:odoo_simplify_access_management.selection__sam_view_line__view_type__pivot
+msgid "Pivot"
+msgstr "透视 (Pivot)"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_button_line__profile_id
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_chatter_line__profile_id
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_domain_line__profile_id
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_field_line__profile_id
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_filter_line__profile_id
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_model_line__profile_id
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_view_line__profile_id
+msgid "Profile"
+msgstr "配置"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model.fields,help:odoo_simplify_access_management.field_sam_profile__disable_developer_mode
+msgid "Prevent these users from using developer mode (including the ?debug=1 URL method)."
+msgstr "阻止这些用户使用开发者模式(含 ?debug=1 URL 方式)。"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model.fields,help:odoo_simplify_access_management.field_sam_profile__disable_login
+msgid ""
+"Prevent these users from logging in (both web and external API "
+"authentication are denied). Active sessions cannot log in again "
+"after expiry or logout."
+msgstr "阻止这些用户登录系统(网页与外部接口认证均被拒绝)。已登录的会话在过期或登出后无法再次登录。"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model.fields,help:odoo_simplify_access_management.field_sam_profile__restrict_xmlrpc
+msgid "Prevent these users from calling model methods via XML-RPC / JSON-RPC external API."
+msgstr "阻止这些用户通过 XML-RPC / JSON-RPC 外部接口调用模型方法。"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_field_line__invisible
+msgid "Hidden"
+msgstr "隐藏"
+
+#. module: odoo_simplify_access_management
+#: model_terms:ir.ui.view,arch_db:odoo_simplify_access_management.sam_profile_view_form
+msgid "Hide Odoo Branding (site-wide, not user-specific)"
+msgstr "隐藏 Odoo 品牌(全局生效,与应用用户无关)"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_profile__debranding
+msgid "Hide Odoo Branding (White Label)"
+msgstr "隐藏 Odoo 品牌(白标)"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_profile__hidden_action_ids
+msgid "Hidden Actions"
+msgstr "隐藏动作"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_profile__hidden_report_ids
+msgid "Hidden Reports"
+msgstr "隐藏报表"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_chatter_line__hide_chatter
+msgid "Hide Entire Chatter"
+msgstr "隐藏整个沟通栏"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_profile__hide_chatter_global
+msgid "Hide Chatter (All Models)"
+msgstr "隐藏沟通栏(全部模型)"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_profile__hide_menu_ids
+#: model_terms:ir.ui.view,arch_db:odoo_simplify_access_management.sam_profile_view_form
+msgid "Hidden Menus"
+msgstr "隐藏菜单"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_profile__view_line_ids
+#: model_terms:ir.ui.view,arch_db:odoo_simplify_access_management.sam_profile_view_form
+msgid "Hidden Views"
+msgstr "隐藏视图"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model.fields,help:odoo_simplify_access_management.field_sam_model_line__hide_search
+msgid "Hide the entire search bar on this model's views (search input, filters, group by, favorites)."
+msgstr "隐藏该模型视图上的整个搜索栏(搜索输入、筛选、分组、收藏)。"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model.fields.selection,name:odoo_simplify_access_management.selection__sam_button_line__element_type__page
+msgid "Tab"
+msgstr "页签 (Tab)"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_profile__favicon
+msgid "Tab Icon (Favicon)"
+msgstr "页签图标 (Favicon)"

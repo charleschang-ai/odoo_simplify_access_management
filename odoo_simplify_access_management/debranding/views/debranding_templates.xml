@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- White-label inheritance templates: disabled by default (active=False),
+         toggled on/off together by the "Hide Odoo Branding" switch in sam.profile. -->
+
+    <!-- 登录页底部 "Powered by Odoo" -->
+    <template id="debrand_login_powered_by" name="Debranding: login powered by"
+              inherit_id="web.login_layout" active="False">
+        <xpath expr="//a[contains(@href, 'utm_medium=auth')]" position="replace"/>
+    </template>
+
+    <!-- 通知邮件(完整布局)底部 "Powered by Odoo",保留退订链接 -->
+    <template id="debrand_mail_layout_footer" name="Debranding: mail layout footer"
+              inherit_id="mail.mail_notification_layout" active="False">
+        <xpath expr="//div[a[contains(@href, 'utm_medium=email')]]" position="replace">
+            <div style="color: #555555; font-size:11px;">
+                <span id="mail_unfollow">
+                    <a href="/mail/unfollow" style="text-decoration:none; color:#555555;">Unfollow</a>
+                </span>
+            </div>
+        </xpath>
+    </template>
+
+    <!-- 通知邮件(轻量布局)底部 "Powered by Odoo",保留退订链接 -->
+    <template id="debrand_mail_light_footer" name="Debranding: mail light footer"
+              inherit_id="mail.mail_notification_light" active="False">
+        <xpath expr="//td[a[contains(@href, 'utm_medium=email')]]" position="replace">
+            <td align="center" style="min-width: 590px;">
+                <span id="mail_unfollow">
+                    <a href="/mail/unfollow" style="text-decoration:none; color:#555555;">Unfollow</a>
+                </span>
+            </td>
+        </xpath>
+    </template>
+
+    <template id="debrand_portal_record_sidebar"  name="Debranding: portal sidebar" inherit_id="portal.portal_record_sidebar" active="False">
+        <xpath expr="//div[@id='sidebar_content']/div[last()]" position="replace">
+            <div class="d-none d-lg-block mt-5 small text-center text-muted">
+                <a/>
+            </div>
+        </xpath>
+    </template>
+
+</odoo>

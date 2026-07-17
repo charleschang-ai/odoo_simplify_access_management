@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <t t-inherit="mail.Chatter" t-inherit-mode="extension">
+        <xpath expr="//button[hasclass('o-mail-Chatter-sendMessage')]" position="attributes">
+            <attribute name="t-if">samAllow('hide_send_message')</attribute>
+        </xpath>
+        <xpath expr="//button[hasclass('o-mail-Chatter-logNote')]" position="attributes">
+            <attribute name="t-if">samAllow('hide_log_note')</attribute>
+        </xpath>
+        <xpath expr="//button[hasclass('o-mail-Chatter-activity')]" position="attributes">
+            <attribute name="t-if">props.has_activities and samAllow('hide_activities')</attribute>
+        </xpath>
+    </t>
+
+</templates>

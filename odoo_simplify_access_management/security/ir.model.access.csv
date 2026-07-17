@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_sam_profile_manager,sam.profile.manager,model_sam_profile,group_sam_manager,1,1,1,1
+access_sam_model_line_manager,sam.model.line.manager,model_sam_model_line,group_sam_manager,1,1,1,1
+access_sam_field_line_manager,sam.field.line.manager,model_sam_field_line,group_sam_manager,1,1,1,1
+access_sam_domain_line_manager,sam.domain.line.manager,model_sam_domain_line,group_sam_manager,1,1,1,1
+access_sam_button_line_manager,sam.button.line.manager,model_sam_button_line,group_sam_manager,1,1,1,1
+access_sam_filter_line_manager,sam.filter.line.manager,model_sam_filter_line,group_sam_manager,1,1,1,1
+access_sam_view_line_manager,sam.view.line.manager,model_sam_view_line,group_sam_manager,1,1,1,1
+access_sam_chatter_line_manager,sam.chatter.line.manager,model_sam_chatter_line,group_sam_manager,1,1,1,1
