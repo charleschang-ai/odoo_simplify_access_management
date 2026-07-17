@@ -1,0 +1,2 @@
+# odoo_simplify_access_management
+odoo_simplify_access_management
