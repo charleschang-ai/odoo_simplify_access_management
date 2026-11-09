@@ -69,7 +69,7 @@ Integrated Access Control: Control by user/user group/company in one place:
         ],
     },
     'uninstall_hook': 'uninstall_hook',
-    'images': ['static/description/icon.png'],
+    'images': ['static/description/banner.png'],
     'installable': True,
     'application': True,
     'price': 99,
