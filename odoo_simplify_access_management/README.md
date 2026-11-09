@@ -22,8 +22,9 @@
 | 隐藏视图 | 按模型隐藏视图类型(列表/看板/透视/图表等) |
 | 沟通栏 | 按模型或全局(所有模型)隐藏整个沟通栏,或单独禁止 发送消息 / 记录备注 / 安排活动(前端隐藏 + 服务端强制) |
 | 报表/动作 | 从打印菜单 / 操作菜单中隐藏指定报表与动作 |
-| 全局限制 | 全部只读、禁用开发者模式(含 `?debug=1`)、禁止安装/升级/卸载模块、禁用导入/导出、禁用 XML-RPC / 外部脚本、禁止登录 |
-| 白标 | 全局隐藏 Odoo 品牌:登录页 "Powered by Odoo"、浏览器标签页标题与图标(Favicon)、通知邮件底部品牌、用户菜单 odoo.com 链接、PWA 应用名;可将网址中的 /odoo 前缀替换为自定义词(旧链接自动 301 跳转);白标逻辑独立存放于 `debranding/` 目录 |
+| 全局限制 | 全部只读、禁用开发者模式(含 `?debug=1`)、禁止安装/升级/卸载模块、禁用导入/导出、禁用 XML-RPC / 外部脚本、禁止登录、隐藏个人资料中的通知设置(浏览器"通知被阻止"横幅与通知处理方式,含 API 写入拦截) |
+| 白标 | 全局隐藏 Odoo 品牌:登录页 "Powered by Odoo"、浏览器标签页标题与图标(Favicon)、通知邮件底部品牌、用户菜单 odoo.com 链接、PWA 应用名、门户侧栏品牌、设置页 About 区块;销售/采购门户单据页的 "Connect with your software!" 按钮与推广弹窗(sale/purchase 非本模块依赖,由 `static/debranding/portal_debrand.css` 按元素 id 隐藏,对应 `ir.asset` 随开关启停);导入界面的 "Import FAQ" / "Go to Import FAQ" 文档链接(`static/debranding/backend_debrand.css`);隐藏导入界面的 Excel 模板下载按钮与右侧栏 Help 区块(部分模板如会计凭证在末页 Instructions 里写死了大段 Odoo 说明,文件无法改写;CSS 隐藏,不动 `get_import_templates()` 接口,外部集成不受影响);可将网址中的 /odoo 前缀替换为自定义词(旧链接自动 301 跳转);白标逻辑独立存放于 `debranding/` 目录 |
+| 邮件去品牌 | 白标启用时,所有外发邮件与模板预览自动整块移除正文中的 "Powered by Odoo" 区块(灰色横带一并去除,支持所有语言翻译,如中文"由Odoo驱动");另提供"一键移除所有邮件模板中的 Powered by Odoo"按钮,把存量模板正文(含各语言)也清理干净,模板编辑器里看到的即为最终效果;实现见 `debranding/html_debrand.py`(渲染/发送/预览四个公共出口统一拦截) |
 
 要点:
 
@@ -46,4 +47,4 @@
 
 ## 作者
 
-Da Lei
+Don Shan

@@ -34,6 +34,14 @@
         </xpath>
     </template>
 
+    <!-- 前台品牌推广条 "Powered by [Odoo logo]":web.brand_promotion_message
+         是公共模板,调查问卷(survey)页脚、网站页脚、登录页等所有 t-call
+         它的位置一并清空。 -->
+    <template id="debrand_brand_promotion" name="Debranding: brand promotion message"
+              inherit_id="web.brand_promotion_message" active="False">
+        <xpath expr="//t[@t-out]" position="replace"/>
+    </template>
+
     <template id="debrand_portal_record_sidebar"  name="Debranding: portal sidebar" inherit_id="portal.portal_record_sidebar" active="False">
         <xpath expr="//div[@id='sidebar_content']/div[last()]" position="replace">
             <div class="d-none d-lg-block mt-5 small text-center text-muted">
@@ -41,5 +49,70 @@
             </div>
         </xpath>
     </template>
+
+    <!-- 门户单据页的 "Connect with your software!" 按钮与推广弹窗
+         (销售 sale / 采购 purchase)。两者都不是本模块依赖,XML 里无法
+         静态继承其模板,改用 CSS 按元素 id 隐藏;ir.asset 同样带 active
+         字段,可与其它白标视图一起被开关切换。 -->
+    <record id="debrand_portal_assets" model="ir.asset">
+        <field name="name">Debranding: portal connect-software</field>
+        <field name="bundle">web.assets_frontend</field>
+        <field name="path">odoo_simplify_access_management/static/debranding/portal_debrand.css</field>
+        <field name="active" eval="False"/>
+    </record>
+
+    <!-- 后端界面指向 odoo.com 的帮助入口(导入界面的 "Import FAQ" 等) -->
+    <!-- 前台(portal / website)去 odoo 化脚本:改写硬编码 /odoo 链接与
+         "Odoo" 文案。用 ir.asset(带 active 字段)随白标开关一起切换。 -->
+    <record id="debrand_frontend_assets" model="ir.asset">
+        <field name="name">Debranding: frontend /odoo links</field>
+        <field name="bundle">web.assets_frontend</field>
+        <field name="path">odoo_simplify_access_management/static/debranding/frontend_debrand.js</field>
+        <field name="active" eval="False"/>
+    </record>
+
+    <record id="debrand_backend_assets" model="ir.asset">
+        <field name="name">Debranding: backend documentation links</field>
+        <field name="bundle">web.assets_backend</field>
+        <field name="path">odoo_simplify_access_management/static/debranding/backend_debrand.css</field>
+        <field name="active" eval="False"/>
+    </record>
+
+    <!-- 设置页底部 "About" 区块(res_config_edition widget:
+         Odoo 版本/版权/odoo.com 链接) -->
+    <!-- 前台(portal / website)注入白标前缀到 <head> 的 meta,供 assets_frontend
+         的 JS 读取以改写硬编码的 /odoo 链接与 "Odoo" 文案。portal.frontend_layout
+         是所有前台页面(含 website.layout)的基类,故一处即覆盖全部前台。
+         用 meta 而非内联脚本,避免前台 CSP 限制。 -->
+    <template id="debrand_frontend_prefix_meta" name="Debranding: frontend prefix meta"
+              inherit_id="portal.frontend_layout" active="False">
+        <xpath expr="//head/meta[1]" position="before">
+            <t t-set="_sam_cfg" t-value="env['sam.profile'].sudo()._get_debranding()"/>
+            <meta t-if="_sam_cfg.get('enabled') and _sam_cfg.get('prefix')"
+                  name="sam-debrand-prefix" t-att-content="_sam_cfg.get('prefix')"/>
+            <meta t-if="_sam_cfg.get('enabled')"
+                  name="sam-debrand-brand" t-att-content="_sam_cfg.get('brand') or ''"/>
+        </xpath>
+    </template>
+
+    <!-- 前台(portal / website)用户下拉菜单里的 "Apps" 链接,硬编码指向
+         /odoo。用配置的前缀改写 href,浏览器状态栏不再出现 odoo 字样。
+         portal 是本模块依赖,website 前台也会渲染此模板,故一处即覆盖两端。 -->
+    <template id="debrand_portal_apps_link" name="Debranding: portal user-menu Apps link"
+              inherit_id="portal.user_dropdown" active="False">
+        <xpath expr="//a[@id='o_backend_user_dropdown_link']" position="attributes">
+            <attribute name="t-att-href">'/' + (env['sam.profile'].sudo()._get_debranding().get('prefix') or 'odoo')</attribute>
+        </xpath>
+    </template>
+
+    <record id="debrand_settings_about" model="ir.ui.view">
+        <field name="name">Debranding: settings about block</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base_setup.res_config_settings_view_form"/>
+        <field name="active" eval="False"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@id='about']" position="replace"/>
+        </field>
+    </record>
 
 </odoo>

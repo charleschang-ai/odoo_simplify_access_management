@@ -1,8 +1,12 @@
 # -*- coding: utf-8 -*-
+import logging
+
 from odoo import _, api, fields, models, tools, SUPERUSER_ID
-from odoo.exceptions import ValidationError
+from odoo.exceptions import AccessError, ValidationError
 from odoo.tools import safe_eval as safe_eval_module
 from odoo.tools.safe_eval import safe_eval
+
+_logger = logging.getLogger(__name__)
 
 
 VIEW_TYPES = [
@@ -66,7 +70,9 @@ class SamCacheMixin(models.AbstractModel):
     def _sam_affected_partner_ids(self):
         partner_ids = set()
         for profile in self._sam_profiles().sudo():
-            users = profile.user_ids | profile.group_ids.users
+            # Odoo 19: res.groups.users 改为 user_ids(仅显式成员),
+            # all_user_ids 才含隐含(implied)成员,与 18 的 users 语义一致
+            users = profile.user_ids | profile.group_ids.all_user_ids
             partner_ids.update(users.partner_id.ids)
         return partner_ids
 
@@ -78,6 +84,15 @@ class SamCacheMixin(models.AbstractModel):
 
     def _sam_notify_partners(self, partner_ids):
         if not partner_ids or 'bus.bus' not in self.env:
+            return
+        # 不向"保存动作发起者"自己推送刷新:bus 走 websocket,常常抢在
+        # 保存 RPC 的 HTTP 响应之前到达,reload_service 立即整页刷新会触发
+        # 表单的 beforeunload 紧急保存(urgentSave 特意绕过 mutex,不等待
+        # 在途请求);此时新建记录在前端仍是"未落地"状态,紧急保存会把它
+        # 再 create 一次,产生两条同名记录。发起者的界面在下次自然刷新时
+        # 更新即可,规则本身都在服务端强制,不受影响。
+        partner_ids = set(partner_ids) - {self.env.user.partner_id.id}
+        if not partner_ids:
             return
         Bus = self.env['bus.bus'].sudo()
         for partner in self.env['res.partner'].sudo().browse(sorted(partner_ids)):
@@ -139,6 +154,13 @@ class SamProfile(models.Model):
         help='Prevent these users from logging in (both web and external API '
              'authentication are denied). Active sessions cannot log in again '
              'after expiry or logout.',
+    )
+    hide_notification_settings = fields.Boolean(
+        string='Hide Notification Settings (My Profile)',
+        help='In the user profile / preferences dialog, hide the browser '
+             '"notifications blocked" alert banner and the Notification '
+             'handling choice (Handle by Emails / Handle in Odoo); changing '
+             'it via API is denied as well.',
     )
 
     # ------- 沟通栏全局开关(对所有模型生效,无需逐模型添加明细行) -------
@@ -236,11 +258,20 @@ class SamProfile(models.Model):
     # 白标(Debranding)
     # ==================================================================
 
+    # 继承视图 + ir.asset(两者都有 active 字段,统一按开关切换;
+    # ir.asset 的 write 会自动清 assets 缓存,前端样式即时生效)
     DEBRANDING_VIEW_XMLIDS = (
         'odoo_simplify_access_management.debrand_login_powered_by',
         'odoo_simplify_access_management.debrand_mail_layout_footer',
         'odoo_simplify_access_management.debrand_mail_light_footer',
         'odoo_simplify_access_management.debrand_portal_record_sidebar',
+        'odoo_simplify_access_management.debrand_brand_promotion',
+        'odoo_simplify_access_management.debrand_settings_about',
+        'odoo_simplify_access_management.debrand_portal_assets',
+        'odoo_simplify_access_management.debrand_backend_assets',
+        'odoo_simplify_access_management.debrand_portal_apps_link',
+        'odoo_simplify_access_management.debrand_frontend_prefix_meta',
+        'odoo_simplify_access_management.debrand_frontend_assets',
     )
 
     @api.model
@@ -274,11 +305,101 @@ class SamProfile(models.Model):
                 view.sudo().active = enabled
         icp = self.env['ir.config_parameter'].sudo()
         if enabled and cfg['brand']:
-            icp.set_param('web.web_app_name', cfg['brand'])
+            if icp.get_param('web.web_app_name') != cfg['brand']:
+                icp.set_param('web.web_app_name', cfg['brand'])
         elif not enabled and icp.get_param('web.web_app_name'):
             icp.set_param('web.web_app_name', False)
+        # 白标启用期间自动清理存量模板正文(含后装模块新带入的模板,
+        # 如 gamification 的 Badge Received),无需手动点"一键清理"
+        if enabled:
+            try:
+                self._sam_debrand_mail_templates()
+            except Exception:
+                _logger.exception('debranding mail template cleanup failed')
         # 前缀可能变化:重建路由表缓存
         self.env.registry.clear_cache('routing')
+
+    @api.model
+    def _sam_debrand_mail_templates(self):
+        """清理数据库中邮件模板的存量品牌痕迹(含所有已安装语言的翻译):
+
+        - 正文:整块移除 "Powered by Odoo" 区块
+        - 正文/主题:配置了品牌名时,把文本中独立的 "Odoo" 品牌词替换为
+          自有品牌(如主题 "invites you to connect to Odoo"、正文
+          "Welcome to Odoo";不碰链接属性里的域名)
+
+        幂等;返回发生修改的模板数。"""
+        from ..debranding import html_debrand
+        if 'mail.template' not in self.env:
+            return 0
+        brand = self._get_debranding().get('brand')
+        # SQL 预筛:不含 odoo 字样(jsonb 文本含全部语言)的模板直接跳过,
+        # 让注册表每次加载时的自动清理在通常情况下只花一条小查询
+        self.env.cr.execute("""
+            SELECT id FROM mail_template
+             WHERE body_html::text ILIKE %s
+                OR body_html::text ILIKE %s
+                OR subject::text ILIKE %s
+        """, ('%odoo%', '%powered by%', '%odoo%'))
+        template_ids = [row[0] for row in self.env.cr.fetchall()]
+        if not template_ids:
+            return 0
+        langs = [code for code, _name in self.env['res.lang'].get_installed()]
+        changed = 0
+        templates = self.env['mail.template'].sudo().with_context(
+            active_test=False).browse(template_ids)
+        for template in templates:
+            template_changed = False
+            for lang in langs:
+                rec = template.with_context(lang=lang)
+                body = rec.body_html
+                if body:
+                    cleaned = html_debrand.remove_odoo_branding(body)
+                    cleaned = html_debrand.replace_odoo_word(cleaned, brand)
+                    if cleaned != body:
+                        rec.body_html = cleaned
+                        template_changed = True
+                subject = rec.subject
+                if subject and brand:
+                    new_subject = html_debrand.replace_odoo_text(subject, brand)
+                    if new_subject != subject:
+                        rec.subject = new_subject
+                        template_changed = True
+            if template_changed:
+                changed += 1
+        return changed
+
+    def _register_hook(self):
+        """注册表每次加载(启动/安装/升级后)时对齐白标视图激活状态:
+        新版本新增的 debrand 继承视图无需依赖迁移脚本即可自动生效。
+        幂等:仅在状态不一致时才写库。"""
+        super()._register_hook()
+        try:
+            self._sam_sync_debranding()
+        except Exception:  # 任何异常都不能阻断注册表加载
+            _logger.exception('debranding view sync failed during registry load')
+
+    def action_sam_debrand_mail_templates(self):
+        """一键清理:把数据库中所有邮件模板正文里存量的 "Powered by Odoo"
+        品牌区块(含所有已安装语言的翻译,如 zh_CN 的"由Odoo驱动")整块移除。
+
+        白标启用期间,发送与预览已经在渲染出口自动清理;本操作让
+        模板编辑器里看到的正文也干净。模块安装/升级重载模板数据后
+        可再次执行,操作幂等。"""
+        if not (self.env.is_admin() or self.env.user.has_group(
+                'odoo_simplify_access_management.group_sam_manager')):
+            raise AccessError(
+                _('Only Access Manage Studio managers can clean email templates.'))
+        changed = self._sam_debrand_mail_templates()
+        if changed:
+            message = _('Removed "Powered by Odoo" from %s email template(s).') % changed
+        else:
+            message = _('No email template contains "Powered by Odoo" anymore.')
+        return {
+            'type': 'ir.actions.client',
+            'tag': 'display_notification',
+            'params': {'type': 'success', 'sticky': False, 'message': message},
+        }
 
     # ==================================================================
     # 规则计算(全部 sudo 读取 + ormcache,按 用户+公司 缓存)
@@ -291,7 +412,8 @@ class SamProfile(models.Model):
         user = self.env.user
         if not user or self.env.uid == SUPERUSER_ID:
             return ()
-        group_ids = user.groups_id.ids
+        # Odoo 19: groups_id 改为 all_group_ids(含隐含组,与 18 语义一致)
+        group_ids = user.all_group_ids.ids
         profiles = self.sudo().search([
             '|', ('user_ids', 'in', user.id), ('group_ids', 'in', group_ids or [0]),
         ])
@@ -313,6 +435,7 @@ class SamProfile(models.Model):
             'disable_import': False,
             'disable_export': False,
             'restrict_xmlrpc': False,
+            'hide_notification_settings': False,
         }
         for profile in self._iter_profiles():
             for key in flags:
@@ -361,6 +484,13 @@ class SamProfile(models.Model):
                 prev[2] |= line.required
                 prev[3] |= line.remove_link
                 prev[4] |= line.no_create
+        # 隐藏个人资料通知设置:注入 res.users.notification_type 的隐藏规则,
+        # 复用字段规则管道(视图隐藏 + 写入拦截)
+        if (model_name == 'res.users'
+                and self._get_global_flags().get('hide_notification_settings')):
+            vals = result.setdefault(
+                'notification_type', [False, False, False, False, False])
+            vals[0] = True
         return tuple((name, *vals) for name, vals in result.items())
 
     @api.model
@@ -619,7 +749,7 @@ class SamDomainLine(models.Model):
         if profile.user_ids:
             conds.append('user.id in %s' % sorted(profile.user_ids.ids))
         if profile.group_ids:
-            conds.append('bool(set(user.groups_id.ids) & set(%s))'
+            conds.append('bool(set(user.all_group_ids.ids) & set(%s))'
                          % sorted(profile.group_ids.ids))
         cond = '(%s)' % ' or '.join(conds) if conds else 'False'
         if profile.company_ids:

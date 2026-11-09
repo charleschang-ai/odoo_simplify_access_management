@@ -15,6 +15,13 @@ def is_valid_prefix(prefix):
     return bool(prefix) and prefix not in RESERVED_PREFIXES and bool(PREFIX_RE.match(prefix))
 
 
+def is_debranding_enabled(env):
+    """站点级白标开关是否启用(与当前用户无关)。"""
+    if 'sam.profile' not in env:
+        return False
+    return bool(env['sam.profile'].sudo()._get_debranding().get('enabled'))
+
+
 def get_url_prefix(env):
     """Currently active URL prefix (validated), or None if not enabled."""
     if 'sam.profile' not in env:

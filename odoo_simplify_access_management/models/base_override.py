@@ -3,8 +3,9 @@ import ast
 
 from lxml import etree
 
-from odoo import _, api, models
+from odoo import _, api, models, SUPERUSER_ID
 from odoo.exceptions import AccessError
+from odoo.http import request
 
 # 我们自己的配置模型不做限制,避免递归/自锁
 _SKIP_MODELS = {
@@ -33,6 +34,17 @@ class Base(models.AbstractModel):
 
     def _sam_rules(self):
         return self.env['sam.profile']._get_model_rules(self._name)
+
+    def _sam_real_user(self):
+        """hr 加载"我的资料"视图(hr.res_users_view_form_profile)时会先
+        with_user(SUPERUSER_ID) 提权再进 get_view(为了带上受 groups 保护
+        的字段定义),规则若按提权后的 uid=1 计算会全部失效。此时回退到
+        HTTP 会话的真实用户。普通 sudo() 提权 uid 不变仍是原用户,
+        不会走进这个分支,维持"遇 su 放行"的设计。"""
+        if (self.env.uid == SUPERUSER_ID and request and request.session.uid
+                and request.session.uid != SUPERUSER_ID):
+            return self.with_user(request.session.uid)
+        return self
 
     def _sam_raise(self, message):
         raise AccessError(
@@ -95,6 +107,7 @@ class Base(models.AbstractModel):
     @api.model
     def get_view(self, view_id=None, view_type='form', **options):
         result = super().get_view(view_id, view_type, **options)
+        self = self._sam_real_user()
         if not self._sam_enabled():
             return result
         try:
@@ -123,12 +136,22 @@ class Base(models.AbstractModel):
                     node.attrib.pop('editable', None)
 
             self._sam_apply_field_rules(node, view_type, Profile)
-            self._sam_apply_button_rules(node, Profile)
+            self._sam_apply_button_rules(node, view_type, Profile)
 
             if view_type == 'form':
                 chatter = Profile._get_chatter_rules(self._name)
                 if chatter and chatter.get('hide_chatter'):
                     self._sam_remove_chatter(node)
+                if (self._name == 'res.users'
+                        and Profile._get_global_flags().get(
+                            'hide_notification_settings')):
+                    # 个人资料弹窗顶部"浏览器通知被阻止"横幅
+                    # (notification_type 字段本身由字段规则管道隐藏)
+                    for el in list(node.iter('widget')):
+                        if el.get('name') == 'notification_alert':
+                            parent = el.getparent()
+                            if parent is not None:
+                                parent.remove(el)
 
         elif view_type == 'search':
             if rules['hide_search']:
@@ -231,23 +254,26 @@ class Base(models.AbstractModel):
                 el.set('options',
                        self._sam_merge_options(el.get('options'), extra))
 
-    def _sam_apply_button_rules(self, node, Profile):
+    def _sam_apply_button_rules(self, node, view_type, Profile):
         button_rules = Profile._get_button_rules(self._name)
         if not button_rules:
             return
-        to_remove = []
         for element_type, name, string in button_rules:
             tag = 'page' if element_type == 'page' else 'button'
             for el in node.iter(tag):
-                if name and el.get('name') == name:
-                    to_remove.append(el)
-                elif string and (el.get('string') == string or
-                                 (el.text or '').strip() == string):
-                    to_remove.append(el)
-        for el in to_remove:
-            parent = el.getparent()
-            if parent is not None:
-                parent.remove(el)
+                matched = (name and el.get('name') == name) or (
+                    string and (el.get('string') == string or
+                                (el.text or '').strip() == string))
+                if not matched:
+                    continue
+                # 不能整块移除:页签/智能按钮内可能声明了视图其他地方的
+                # invisible/readonly 表达式所引用的字段(如 sale.order
+                # "Other Info" 里的 invoice_status),移除后字段不再随视图
+                # 加载,前端求值直接报 Name is not defined。改为强制不可见,
+                # 内容保留在 arch 中、字段照常加载。
+                el.set('invisible', 'True')
+                if tag == 'button' and self._sam_in_list_view(el, view_type):
+                    el.set('column_invisible', 'True')
 
     def _sam_apply_filter_rules(self, node, Profile):
         filter_rules = Profile._get_filter_rules(self._name)

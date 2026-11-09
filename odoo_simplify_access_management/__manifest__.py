@@ -6,7 +6,7 @@
 ################################################################################
 {
     'name': 'Access Manage Studio | Odoo Simplify Access Management',
-    'version': '18.0.1.7.0',
+    'version': '19.0.1.9.0',
     'category': 'Extra Tools',
     'summary': 'All in one access management: hide/readonly fields, models, '
                'menus, records, filters, buttons/tabs, views, actions, '
@@ -48,7 +48,12 @@ Integrated Access Control: Control by user/user group/company in one place:
     'maintainer': 'Don Shan',
     'website': '',
     'license': 'LGPL-3',
-    'depends': ['web', 'mail', 'base_import', 'bus'],
+    # portal: debranding_templates.xml 继承 portal.portal_record_sidebar,
+    # 缺少该依赖时在未装 portal 的新库上安装会失败
+    # rpc: Odoo 19 起 /xmlrpc、/jsonrpc 控制器位于独立的 rpc 模块
+    # base_setup: 白标需隐藏设置页的 About 区块(res_config_edition)
+    'depends': ['web', 'mail', 'base_import', 'bus', 'portal', 'rpc',
+                'base_setup'],
     'data': [
         'security/sam_security.xml',
         'security/ir.model.access.csv',
@@ -60,6 +65,7 @@ Integrated Access Control: Control by user/user group/company in one place:
             'odoo_simplify_access_management/static/src/**/*',
         ],
     },
+    'uninstall_hook': 'uninstall_hook',
     'images': ['static/description/banner.png'],
     'installable': True,
     'application': True,

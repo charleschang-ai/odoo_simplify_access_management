@@ -1,28 +1,17 @@
 # -*- coding: utf-8 -*-
-import re
+from odoo import models
 
-from odoo import api, models
-
-# 仅抹除 "Powered by Odoo" 文字与链接,不动任何 HTML 结构,
-# 避免嵌套 <tr>/<table> 场景下正则误吞整个 body 导致预览空白。
-_POWERED_BY_TEXT_RE = re.compile(
-    r'Powered by\s+<a\b[^>]*href="https?://(?:www\.)?odoo\.com[^"]*"[^>]*>Odoo</a>\.?',
-    re.IGNORECASE,
-)
+from ..debranding import const, html_debrand
 
 
 class MailTemplatePreview(models.TransientModel):
     _inherit = 'mail.template.preview'
 
     def _set_mail_attributes(self, values=None):
+        """未选中记录的预览直接拷贝模板原始 body_html,不经渲染管道,
+        这里单独兜底移除 "Powered by Odoo" 品牌区块。"""
         super()._set_mail_attributes(values)
-        if 'sam.profile' not in self.env:
-            return
-        if not self.env['sam.profile'].sudo()._get_debranding().get('enabled'):
-            return
-        body = self.body_html or ''
-        if not body:
-            return
-        cleaned = _POWERED_BY_TEXT_RE.sub('', body)
-        if cleaned != body:
-            self.body_html = cleaned
+        if self.body_html and const.is_debranding_enabled(self.env):
+            cleaned = html_debrand.remove_odoo_branding(self.body_html)
+            if cleaned != self.body_html:
+                self.body_html = cleaned

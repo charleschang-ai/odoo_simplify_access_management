@@ -15,5 +15,13 @@ if (PREFIX) {
             const original = super.getMenuItemHref(payload);
             return original.replace("/odoo/", `/${PREFIX}/`);
         },
+        /**
+         * 导航栏左上角"返回主界面"按钮(o_menu_toggle,企业版九宫格图标)与
+         * 移动端 All Apps 按钮的 href:模板里硬编码 /odoo,由
+         * navbar_home_patch.xml 改为读取此 getter(未启用白标时模板回退 /odoo)。
+         */
+        get samHomeHref() {
+            return `/${PREFIX}`;
+        },
     });
 }

@@ -47,6 +47,7 @@
                             <field name="disable_export"/>
                             <field name="restrict_xmlrpc"/>
                             <field name="disable_login"/>
+                            <field name="hide_notification_settings"/>
                         </group>
                     </group>
                     <notebook>
@@ -169,6 +170,21 @@
                                     </div>
                                 </group>
                             </group>
+                            <group string="Email Templates" invisible="not debranding">
+                                <div colspan="2">
+                                    <button name="action_sam_debrand_mail_templates" type="object"
+                                            string="Remove &quot;Powered by Odoo&quot; from all Email Templates"
+                                            class="btn btn-secondary"
+                                            confirm="Remove the 'Powered by Odoo' block from the stored body of ALL email templates, in every installed language? Outgoing emails and previews are already cleaned automatically while White Label is enabled; this also cleans the body you see in the template editor. The operation is idempotent and can be re-run anytime."/>
+                                    <div class="text-muted mt-2">
+                                        While White Label is enabled, outgoing emails and template previews are
+                                        cleaned automatically on the fly (all languages). This button additionally
+                                        removes the stored "Powered by Odoo" block from every email template body
+                                        (Settings / Technical / Email Templates), so the template editor is clean
+                                        too. Re-run it after installing or upgrading modules that reload templates.
+                                    </div>
+                                </div>
+                            </group>
                         </page>
                         <page string="Reports/Actions" name="reports_actions">
                             <group>
@@ -193,7 +209,8 @@
                 <field name="user_ids"/>
                 <field name="group_ids"/>
                 <filter string="Archived" name="inactive" domain="[('active', '=', False)]"/>
-                <group expand="0" string="Group By">
+                <!-- Odoo 19: search 视图的 group 不再支持 string/expand 属性 -->
+                <group name="group_by">
                     <filter string="Company" name="group_company"
                             context="{'group_by': 'company_ids'}"/>
                 </group>

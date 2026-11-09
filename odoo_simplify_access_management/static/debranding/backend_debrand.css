@@ -1,0 +1,35 @@
+/* 白标:隐藏后端界面里的 Odoo 品牌痕迹(导入界面)。
+ *
+ * 由 ir.asset debrand_backend_assets 承载,默认 active=False,随
+ * "隐藏 Odoo 品牌"开关一起启停(见 sam.profile.DEBRANDING_VIEW_XMLIDS)。
+ *
+ * 之所以用 CSS 而不是 Owl 模板继承(t-inherit)或 Python 重写:
+ * - 模板继承的 xpath 一旦因上游改版失配,整个 assets_backend 打包失败
+ *   会导致后台白屏;CSS 选择器不命中只是不生效,风险可控。
+ * - get_import_templates() 返回空虽能让按钮不渲染,但该方法是公共 RPC,
+ *   其他模块/外部集成可能调用它取模板地址,改返回值影响面不可控。
+ *
+ * 注意选择器不能锚定 aria-label="Download" / data-tooltip="Download":
+ * 这两个属性在 Owl 模板里是可翻译属性,中文界面下值会变成"下载"。 */
+
+/* 1. 上传页空状态 "Need Help? <Import FAQ>" 一行:整块隐藏 ——
+ *    只隐藏链接会剩下一句没有下文的 "Need Help?"。
+ *    DocumentationLink 组件渲染的 <a> 固定带 o_doc_link 类
+ *    (web.DocumentationLink),比按 class="mt16 mb4" 布局类匹配稳定。 */
+.o_import_action .o_nocontent_help div:has(> .o_doc_link),
+
+/* 2. 上传页空状态的 Excel 模板下载按钮(t-foreach="importTemplates"):
+ *    部分模板(如会计凭证)在末页 Instructions sheet 里写死了大段 Odoo
+ *    说明,文件本身无法改写,连按钮一起隐藏。按钮内固定有 fa-download
+ *    图标,以此锚定,不受语言影响。 */
+.o_import_action .o_nocontent_help a:has(> .fa-download),
+
+/* 3. 载入文件后右侧栏的 Help 区块:内容只有模板下载链接(同样带
+ *    fa-download)与 "Go to Import FAQ" 文档链接,全部要隐藏,只剩一个
+ *    空的 "Help" 标题反而突兀,整块隐藏。 */
+.o_import_data_sidepanel div:has(> .o_doc_link),
+
+/* 兜底:导入界面里其余位置出现的文档链接(o_doc_link)一律隐藏。 */
+.o_import_action .o_doc_link {
+    display: none !important;
+}

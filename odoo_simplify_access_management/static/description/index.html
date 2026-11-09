@@ -25,7 +25,7 @@
         <p style="font-size:17px;line-height:1.7;color:#6B7280;max-width:820px;margin:0 auto 30px;">
             Not just cosmetic hiding: every rule is <b>enforced on the server (ORM level)</b>, so restricted users
             cannot bypass it through the URL, debug mode, the API or external scripts. Plus a complete
-            <b>White Label</b> that removes the &ldquo;Odoo&rdquo; brand from login page, notification emails, browser title, user menu, URLs and more.
+            <b>White Label</b> that removes the &ldquo;Odoo&rdquo; brand from login page, emails, user menu, settings, URLs and more.
         </p>
 
         <div style="display:flex;flex-wrap:wrap;justify-content:center;margin-bottom:36px;">
@@ -117,7 +117,7 @@
                 <div style="font-size:14px;color:#6B7280;line-height:1.6;">Global read-only, disable developer mode, block module install/upgrade/uninstall, disable import/export, block XML-RPC, deny login.</div></div>
             <div style="flex:1 1 250px;margin:8px;border:1px solid #E5E7EB;border-radius:14px;padding:20px;">
                 <div style="font-size:26px;">&#127991;</div><div style="font-weight:700;font-size:17px;margin:6px 0;">White Label</div>
-                <div style="font-size:14px;color:#6B7280;line-height:1.6;">Remove Odoo branding from login page, notification emails, browser title, favicon, user menu, PWA, portal sidebar and URLs.</div></div>
+                <div style="font-size:14px;color:#6B7280;line-height:1.6;">Remove Odoo branding from login, emails, title, favicon, user menu, PWA, portal, settings and URLs.</div></div>
             <div style="flex:1 1 250px;margin:8px;border:1px solid #E5E7EB;border-radius:14px;padding:20px;">
                 <div style="font-size:26px;">&#127970;</div><div style="font-weight:700;font-size:17px;margin:6px 0;">Users, Groups, Companies</div>
                 <div style="font-size:14px;color:#6B7280;line-height:1.6;">Apply a profile to users, to whole user groups, and limit it to specific companies (multi-company ready).</div></div>
@@ -215,19 +215,26 @@
     <div style="padding:36px 0;border-bottom:1px solid #F3F4F6;">
         <div style="font-size:13px;font-weight:700;color:#875A7B;letter-spacing:1px;">07 &middot; WHITE LABEL</div>
         <h3 style="font-size:26px;font-weight:800;color:#111827;margin:6px 0 10px;">Your brand everywhere &ndash; the most complete Odoo debranding</h3>
-        <p style="font-size:16px;line-height:1.7;color:#4B5563;margin:0 0 18px;">Tick <b>Hide Odoo Branding</b>, enter your brand name, bot name and optional URL prefix &ndash; done. It is site-wide and can be switched off at any time.</p>
-        <h4 style="font-size:18px;font-weight:700;color:#111827;margin:10px 0;">User menu: links to odoo.com removed</h4>
+        <p style="font-size:16px;line-height:1.7;color:#4B5563;margin:0 0 18px;">Tick <b>Hide Odoo Branding</b>, enter your brand name, an optional favicon and URL prefix &ndash; done. It is site-wide and can be switched off at any time.</p>
+        <h4 style="font-size:18px;font-weight:700;color:#111827;margin:10px 0;">Login page: &ldquo;Powered by Odoo &ndash; Create a free website&rdquo; removed</h4>
+        <img src="assets/screenshots/img11_wl_login_before_after.png" style="width:100%;border-radius:10px;border:1px solid #E5E7EB;"/>
+        <h4 style="font-size:18px;font-weight:700;color:#111827;margin:24px 0 10px;">User menu: links to odoo.com removed</h4>
         <img src="assets/screenshots/img13_wl_usermenu_before_after.png" style="width:100%;border-radius:10px;border:1px solid #E5E7EB;"/>
+        <h4 style="font-size:18px;font-weight:700;color:#111827;margin:24px 0 10px;">Settings: the Odoo &ldquo;About&rdquo; block is hidden</h4>
+        <img src="assets/screenshots/img14_wl_about_before_after.png" style="width:100%;border-radius:10px;border:1px solid #E5E7EB;"/>
         <div style="display:flex;flex-wrap:wrap;margin:24px -8px 0;align-items:flex-start;">
                         <div style="flex:1 1 400px;margin:8px;background:#FAF5F9;border-radius:14px;padding:22px;">
                 <div style="font-weight:700;font-size:16px;color:#875A7B;margin-bottom:10px;">What White Label covers</div>
                 <div style="font-size:14px;line-height:1.9;color:#374151;">
                     &#10003; Login page &ldquo;Powered by Odoo&rdquo;<br/>
                     &#10003; Browser tab title &amp; favicon<br/>
-                    &#10003; &ldquo;Powered by Odoo&rdquo; footer in notification emails<br/>
-                    &#10003; User menu links to odoo.com (Documentation, Support, My Odoo.com account)<br/>
+                    &#10003; User menu links to odoo.com<br/>
                     &#10003; PWA app name<br/>
-                    &#10003; Portal sidebar branding<br/>
+                    &#10003; &ldquo;Powered by Odoo&rdquo; in all outgoing emails &amp; previews (all languages)<br/>
+                    &#10003; One-click cleanup of all stored email templates<br/>
+                    &#10003; Portal sidebar branding, &ldquo;Connect with your software&rdquo; button and promo pop-ups<br/>
+                    &#10003; Import FAQ links and Odoo import templates/help panel<br/>
+                    &#10003; Settings &ldquo;About&rdquo; block<br/>
                     &#10003; Replace <code>/odoo</code> in URLs with your own word (old links redirect with 301)
                 </div>
             </div>
@@ -298,8 +305,9 @@
                 </div>
                 <div style="flex:1 1 400px;">
                     &#9679; Users without a profile are completely unaffected<br/>
-                                        &#9679; English &amp; Simplified Chinese included<br/>
-                    &#9679; Depends only on standard modules: web, mail, base_import, bus
+                    &#9679; Clean uninstall: generated record rules are removed and the PWA app name is restored<br/>
+                    &#9679; English &amp; Simplified Chinese included<br/>
+                    &#9679; Depends only on standard modules: web, mail, base_import, bus, portal, rpc, base_setup
                 </div>
             </div>
         </div>
@@ -320,7 +328,10 @@
         <div style="border:1px solid #E5E7EB;border-radius:12px;padding:18px 20px;margin-bottom:12px;">
             <div style="font-weight:700;font-size:16px;color:#111827;">Does it work with Community and Enterprise?</div>
             <div style="font-size:15px;color:#4B5563;line-height:1.7;margin-top:6px;">Yes, both editions of Odoo 19, on-premise and Odoo.sh.</div></div>
-            </div>
+        <div style="border:1px solid #E5E7EB;border-radius:12px;padding:18px 20px;margin-bottom:12px;">
+            <div style="font-weight:700;font-size:16px;color:#111827;">What happens if I uninstall it?</div>
+            <div style="font-size:15px;color:#4B5563;line-height:1.7;margin-top:6px;">All generated record rules are deleted and the White Label PWA app name is restored. Your data stays intact.</div></div>
+    </div>
 
     <!-- ============ CONTACT ============ -->
     <div style="text-align:center;padding:40px 20px;margin-bottom:40px;background:#017E84;border-radius:18px;color:#fff;">
