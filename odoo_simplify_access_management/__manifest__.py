@@ -44,8 +44,8 @@ Integrated Access Control: Control by user/user group/company in one place:
 * 全局:禁用开发者模式、禁止安装/升级/卸载模块、禁用导入导出、禁用 XML-RPC 脚本
 * 去除白标： 最全的移除系统中的odoo字眼
 """,
-    'author': 'Da Lei',
-    'maintainer': 'Da Lei',
+    'author': 'Don Shan',
+    'maintainer': 'Don Shan',
     'website': '',
     'license': 'LGPL-3',
     'depends': ['web', 'mail', 'base_import', 'bus'],
@@ -63,6 +63,6 @@ Integrated Access Control: Control by user/user group/company in one place:
     'images': ['static/description/icon.png'],
     'installable': True,
     'application': True,
-    'price': 120,
+    'price': 99,
     'currency': "USD",
 }
