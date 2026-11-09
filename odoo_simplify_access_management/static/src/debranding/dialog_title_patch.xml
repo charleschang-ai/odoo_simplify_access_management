@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <!-- web.Dialog.header 也会被其他组件 t-call(此时 this 不是 Dialog),
+         因此 samTitle 不存在时回退为原样输出 -->
+    <t t-inherit="web.Dialog.header" t-inherit-mode="extension">
+        <xpath expr="//h4[hasclass('modal-title')]/t[@t-out]" position="attributes">
+            <attribute name="t-out">this.samTitle ? this.samTitle(this.props.title) : window.String(this.props.title)</attribute>
+        </xpath>
+    </t>
+
+    <!-- 动作弹窗(target="new" 的窗口动作,如"修改密码")用的是 web.Dialog.header
+         的 primary 副本,不会继承到上面的扩展,需单独处理 -->
+    <t t-inherit="web.ActionDialog.header" t-inherit-mode="extension">
+        <xpath expr="//h4[hasclass('modal-title')]/t[@t-out]" position="attributes">
+            <attribute name="t-out">this.samTitle ? this.samTitle(this.props.title) : window.String(this.props.title)</attribute>
+        </xpath>
+    </t>
+
+</templates>

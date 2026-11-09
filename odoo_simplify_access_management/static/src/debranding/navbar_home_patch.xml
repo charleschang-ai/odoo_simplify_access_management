@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates xml:space="preserve">
+
+<!-- 白标:导航栏"返回主界面"按钮的 href 硬编码 /odoo,鼠标悬停时浏览器左下角
+     会露出 odoo。改为读取 NavBar 上的 samHomeHref getter(navbar_href_patch.js,
+     仅在白标启用时定义;未定义时表达式回退 /odoo,行为与原生一致)。
+     OWL 3:组件成员必须写 this. 前缀。 -->
+
+<!-- 企业版:左上角九宫格返回主界面按钮 -->
+<t t-inherit="web_enterprise.EnterpriseNavBar" t-inherit-mode="extension">
+    <xpath expr="//a[@href='/odoo']" position="attributes">
+        <attribute name="href"/>
+        <attribute name="t-att-href">this.samHomeHref || '/odoo'</attribute>
+    </xpath>
+</t>
+
+<!-- 社区版/移动端:汉堡按钮与侧栏 All Apps 按钮 -->
+<t t-inherit="web.NavBar.AppsMenu" t-inherit-mode="extension">
+    <xpath expr="//a[@href='/odoo']" position="attributes">
+        <attribute name="href"/>
+        <attribute name="t-att-href">this.samHomeHref || '/odoo'</attribute>
+    </xpath>
+</t>
+
+<t t-inherit="web.NavBar.AppsMenu.Sidebar" t-inherit-mode="extension">
+    <xpath expr="//a[@href='/odoo']" position="attributes">
+        <attribute name="href"/>
+        <attribute name="t-att-href">this.samHomeHref || '/odoo'</attribute>
+    </xpath>
+</t>
+
+</templates>

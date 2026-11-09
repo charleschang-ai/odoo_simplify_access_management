@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates xml:space="preserve">
+
+<!-- 白标:企业版首页 App 图标的 href。samAppHref 仅在配置了 URL 前缀时
+     由 home_menu_patch.js 定义,未定义时保持原 href。 -->
+<t t-inherit="web_enterprise.HomeMenu" t-inherit-mode="extension">
+    <xpath expr="//a[@t-att-href='app.href']" position="attributes">
+        <attribute name="t-att-href">this.samAppHref ? this.samAppHref(app.href) : app.href</attribute>
+    </xpath>
+</t>
+
+</templates>

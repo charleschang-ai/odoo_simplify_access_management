@@ -1,5 +1,5 @@
 import { patch } from "@web/core/utils/patch";
-import { Chatter } from "@mail/chatter/web_portal/chatter";
+import { Chatter } from "@mail/chatter/web_portal_project/chatter";
 import { session } from "@web/session";
 
 patch(Chatter.prototype, {
@@ -10,8 +10,8 @@ patch(Chatter.prototype, {
      */
     samAllow(kind) {
         const rules = (session.sam && session.sam.chatter) || {};
-        // 未命中具体模型时回退到全局开关('*')
-        const modelRules = rules[this.props.threadModel] || rules["*"];
+        // 未命中具体模型时回退到全局开关('*');OWL 3 中 props 改为计算信号
+        const modelRules = rules[this.threadModel()] || rules["*"];
         if (!modelRules) {
             return true;
         }

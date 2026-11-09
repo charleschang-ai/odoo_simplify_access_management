@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Odoo 20 在发帖时把字段追踪值渲染进消息正文。给每一行包上带技术
+         字段名的 class,mail.message 下发前端时据此按查看者剥离"隐藏字段"
+         的追踪行(见 models/mail_thread.py)。除外层 span 外与核心模板一致。 -->
+    <template id="sam_mail_tracking_template" name="Access Manage Studio: tracking field marker"
+              inherit_id="mail.mail_tracking_template">
+        <xpath expr="//t[@t-foreach='trackingValues']" position="replace">
+            <t t-foreach="trackingValues" t-as="val">
+                <span t-att-class="('o_sam_track_' + val['field_name']) if val.get('field_name') else None"><em t-if="val.get('company_name')" t-out="val['company_name'] + ': '"/><t t-out="val['old_value']" t-if="val['old_value']"/> → <b t-out="val['new_value']"/> <i>(<t t-out="val['field_label']"/>)</i></span><br t-if="val_index &lt; len(trackingValues) - 1"/>
+            </t>
+        </xpath>
+    </template>
+
+</odoo>

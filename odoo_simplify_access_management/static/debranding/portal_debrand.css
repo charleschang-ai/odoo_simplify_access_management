@@ -1,0 +1,29 @@
+/* 白标:隐藏门户单据页里的 Odoo 推广入口。
+ *
+ * 销售(sale.sale_order_portal_template)与采购
+ * (purchase.portal_my_purchase_order)的门户侧栏各有一个
+ * "Connect with your software!" 按钮 + 一个推广弹窗(弹窗正文含
+ * odoo.com 链接、"Start on Odoo" 等文案)。sale / purchase 不是本模块的
+ * 依赖,XML 里无法静态继承它们的模板,故按元素 id 用 CSS 隐藏;两个模块
+ * 都没装时选择器不命中,无副作用。
+ *
+ * 该样式由 ir.asset debrand_portal_assets 承载,默认 active=False,
+ * 随"隐藏 Odoo 品牌"开关一起启停(见 sam.profile.DEBRANDING_VIEW_XMLIDS)。 */
+
+/* 按钮外层是 <div t-if="..._get_edi_builders()">,只隐藏按钮会在侧栏的
+ * flex gap 布局里留下一段空隙,所以连外层 div 一起隐藏。 */
+div:has(> #portal_connect_software_modal_btn),
+#portal_connect_software_modal_btn,
+#sale_portal_connect_software_modal,
+#portal_connect_software_modal {
+    display: none !important;
+}
+
+/* 前台(门户 / 网站 / 文档分享 / 电子签名 / 银行同步授权页)里硬编码的
+ * Odoo logo 图片:/web/static/img/logo*.png、odoo_logo.svg 等。
+ * 公司 logo 走 /logo.png 或 /web/binary/company_logo,不受影响。 */
+img[src^="/web/static/img/logo"],
+img[src*="/web/static/img/odoo_logo"],
+img[src*="/web/static/img/odoo_icon"] {
+    display: none !important;
+}

@@ -1,0 +1,9 @@
+id,name,model_id,group_id/id,operation,domain
+access_sam_profile_manager,sam.profile.manager,sam.profile,group_sam_manager,crud,
+access_sam_model_line_manager,sam.model.line.manager,sam.model.line,group_sam_manager,crud,
+access_sam_field_line_manager,sam.field.line.manager,sam.field.line,group_sam_manager,crud,
+access_sam_domain_line_manager,sam.domain.line.manager,sam.domain.line,group_sam_manager,crud,
+access_sam_button_line_manager,sam.button.line.manager,sam.button.line,group_sam_manager,crud,
+access_sam_filter_line_manager,sam.filter.line.manager,sam.filter.line,group_sam_manager,crud,
+access_sam_view_line_manager,sam.view.line.manager,sam.view.line,group_sam_manager,crud,
+access_sam_chatter_line_manager,sam.chatter.line.manager,sam.chatter.line,group_sam_manager,crud,

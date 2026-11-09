@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <templates xml:space="preserve">
 
+    <!-- OWL 3:模板渲染上下文不再是组件实例,组件成员必须写 this. 前缀 -->
     <t t-inherit="mail.Chatter" t-inherit-mode="extension">
         <xpath expr="//button[hasclass('o-mail-Chatter-sendMessage')]" position="attributes">
-            <attribute name="t-if">samAllow('hide_send_message')</attribute>
+            <attribute name="t-if">this.samAllow('hide_send_message')</attribute>
         </xpath>
         <xpath expr="//button[hasclass('o-mail-Chatter-logNote')]" position="attributes">
-            <attribute name="t-if">samAllow('hide_log_note')</attribute>
+            <attribute name="t-if">this.samAllow('hide_log_note')</attribute>
         </xpath>
         <xpath expr="//button[hasclass('o-mail-Chatter-activity')]" position="attributes">
-            <attribute name="t-if">props.has_activities and samAllow('hide_activities')</attribute>
+            <attribute name="t-if">this.webChatterProps.has_activities and this.samAllow('hide_activities')</attribute>
         </xpath>
     </t>
 

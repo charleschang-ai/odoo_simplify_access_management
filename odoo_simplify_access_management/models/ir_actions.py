@@ -42,7 +42,10 @@ class IrActionsActWindow(models.Model):
         # 动作加载走 sudo,需要回到真实请求用户的环境判断规则
         env = self.env
         if env.su:
-            if request is None or not request.session or not request.session.uid:
+            # request 是 werkzeug LocalProxy,永远不为 None;无 HTTP 请求时
+            # (定时任务、邮件网关、脚本)其真值为 False,访问属性会抛
+            # RuntimeError: request not bound
+            if not request or not request.session or not request.session.uid:
                 return result
             env = request.env
         if env.su or not env.uid or 'sam.profile' not in env:

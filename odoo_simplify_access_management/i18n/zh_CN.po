@@ -24,7 +24,7 @@ msgid ""
 "Contact your administrator if you have questions."
 msgstr ""
 "%(message)s(模型:%(model)s)\n"
-"该操作已被 Access Manage Studio 访问配置限制,如有疑问请联系管理员。"
+"该操作已被「权限管理大全」限制,如有疑问请联系管理员。"
 
 #. module: odoo_simplify_access_management
 #: model:ir.actions.act_window,name:odoo_simplify_access_management.sam_profile_action
@@ -35,57 +35,57 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:odoo_simplify_access_management.sam_profile_view_list
 #: model_terms:ir.ui.view,arch_db:odoo_simplify_access_management.sam_profile_view_search
 msgid "Access Manage Studio"
-msgstr "Access Manage Studio"
+msgstr "权限管理大全"
 
 #. module: odoo_simplify_access_management
 #: model:ir.model,name:odoo_simplify_access_management.model_sam_field_line
 msgid "SAM Field Rule"
-msgstr "Access Manage Studio 字段权限"
+msgstr "权限管理大全 - 字段权限"
 
 #. module: odoo_simplify_access_management
 #: model:ir.model,name:odoo_simplify_access_management.model_sam_button_line
 msgid "SAM Button Rule"
-msgstr "Access Manage Studio 按钮/页签"
+msgstr "权限管理大全 - 按钮/页签"
 
 #. module: odoo_simplify_access_management
 #: model:ir.model,name:odoo_simplify_access_management.model_sam_model_line
 msgid "SAM Model Rule"
-msgstr "Access Manage Studio 模型权限"
+msgstr "权限管理大全 - 模型权限"
 
 #. module: odoo_simplify_access_management
 #: model:ir.model,name:odoo_simplify_access_management.model_sam_chatter_line
 msgid "SAM Chatter Rule"
-msgstr "Access Manage Studio 沟通栏"
+msgstr "权限管理大全 - 沟通栏"
 
 #. module: odoo_simplify_access_management
 #: model:ir.model,name:odoo_simplify_access_management.model_sam_filter_line
 msgid "SAM Filter Rule"
-msgstr "Access Manage Studio 筛选/分组"
+msgstr "权限管理大全 - 筛选/分组"
 
 #. module: odoo_simplify_access_management
 #: model:ir.model,name:odoo_simplify_access_management.model_sam_cache_mixin
 msgid "SAM Cache Invalidation Mixin"
-msgstr "Access Manage Studio 缓存失效 Mixin"
+msgstr "权限管理大全 - 缓存失效 Mixin"
 
 #. module: odoo_simplify_access_management
 #: model:ir.model,name:odoo_simplify_access_management.model_sam_domain_line
 msgid "SAM Record Rule"
-msgstr "Access Manage Studio 记录权限"
+msgstr "权限管理大全 - 记录权限"
 
 #. module: odoo_simplify_access_management
 #: model:ir.module.category,description:odoo_simplify_access_management.module_category_sam
 msgid "Access Manage Studio"
-msgstr "Access Manage Studio 访问权限管理"
+msgstr "权限管理大全:一体化访问权限管理"
 
 #. module: odoo_simplify_access_management
 #: model:ir.model,name:odoo_simplify_access_management.model_sam_profile
 msgid "SAM Profile"
-msgstr "Access Manage Studio 访问配置"
+msgstr "权限管理大全 - 访问配置"
 
 #. module: odoo_simplify_access_management
 #: model:ir.model,name:odoo_simplify_access_management.model_sam_view_line
 msgid "SAM View Rule"
-msgstr "Access Manage Studio 隐藏视图"
+msgstr "权限管理大全 - 隐藏视图"
 
 #. module: odoo_simplify_access_management
 #: model:ir.model,name:odoo_simplify_access_management.model_ir_actions_act_window
@@ -208,11 +208,6 @@ msgstr "最后更新时间"
 #: model:ir.model,name:odoo_simplify_access_management.model_mail_render_mixin
 msgid "Mail Render Mixin"
 msgstr "邮件渲染混合"
-
-#. module: odoo_simplify_access_management
-#: model:ir.model,name:odoo_simplify_access_management.model_mail_tracking_value
-msgid "Mail Tracking Value"
-msgstr "邮件跟踪值"
 
 #. module: odoo_simplify_access_management
 #: model:ir.model,name:odoo_simplify_access_management.model_ir_ui_menu
@@ -339,7 +334,7 @@ msgstr "只读"
 #. module: odoo_simplify_access_management
 #: model:res.groups,comment:odoo_simplify_access_management.group_sam_manager
 msgid "Can create and manage Access Manage Studio configurations."
-msgstr "可以创建和管理 Access Manage Studio 访问配置。"
+msgstr "可以创建和管理「权限管理大全」访问配置。"
 
 #. module: odoo_simplify_access_management
 #: model:ir.model.fields.selection,name:odoo_simplify_access_management.selection__sam_view_line__view_type__cohort
@@ -357,19 +352,40 @@ msgid ""
 "When enabled, globally hides: \"Powered by Odoo\" on login page,\n"
 "                                        browser tab title, notification email footer branding,\n"
 "                                        odoo.com links in user menu (Documentation/Support/My Odoo.com account),\n"
-"                                        and the PWA app name. Entering a URL prefix replaces /odoo in URLs\n"
+"                                        the PWA app name, \"Odoo\" in dialog titles, OdooBot's name and messages,\n"
+"                                        and the Odoo content of the Knowledge welcome article.\n"
+"                                        Entering a URL prefix replaces /odoo in URLs\n"
 "                                        with the custom word (old /odoo links redirect with 301)."
 msgstr ""
 "启用后全局隐藏:登录页 \"Powered by Odoo\"、\n"
 "                                        浏览器标签页标题、通知邮件底部品牌、\n"
 "                                        用户菜单中的 odoo.com 链接(文档/支持/My Odoo.com account)、\n"
-"                                        PWA 应用名;填写 URL 前缀可将网址中的 /odoo 替换为自定义词\n"
+"                                        PWA 应用名、弹窗标题中的 \"Odoo\"、OdooBot 的名称与消息、\n"
+"                                        知识库欢迎文章中的 Odoo 内容;\n"
+"                                        填写 URL 前缀可将网址中的 /odoo 替换为自定义词\n"
 "                                        (旧 /odoo 链接自动 301 跳转)。"
 
 #. module: odoo_simplify_access_management
 #: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_profile__brand_name
 msgid "Brand Name"
 msgstr "品牌名称"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_profile__bot_name
+msgid "Bot Name"
+msgstr "机器人名称"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model.fields,help:odoo_simplify_access_management.field_sam_profile__bot_name
+msgid ""
+"Name to replace \"OdooBot\" (Discuss chat bot, sender of the "
+"welcome messages). Uses \"<Brand Name> Bot\" if left empty."
+msgstr "替代 \"OdooBot\" 的名称(讨论应用中的聊天机器人,欢迎消息的发送者),留空则使用 \"<品牌名称> Bot\"。"
+
+#. module: odoo_simplify_access_management
+#: model_terms:ir.ui.view,arch_db:odoo_simplify_access_management.sam_profile_view_form
+msgid "Leave empty to use \"Brand Name Bot\""
+msgstr "留空使用 \"品牌名称 Bot\""
 
 #. module: odoo_simplify_access_management
 #: model:ir.model.fields.selection,name:odoo_simplify_access_management.selection__sam_view_line__view_type__graph
@@ -490,7 +506,7 @@ msgid ""
 "You are not allowed to install/upgrade/uninstall modules "
 "due to Access Manage Studio restrictions. "
 "Contact your administrator if you have questions."
-msgstr "您已被 Access Manage Studio 访问配置禁止安装/升级/卸载模块,如有疑问请联系管理员。"
+msgstr "您已被「权限管理大全」禁止安装/升级/卸载模块,如有疑问请联系管理员。"
 
 #. module: odoo_simplify_access_management
 #. odoo-python
@@ -498,7 +514,7 @@ msgstr "您已被 Access Manage Studio 访问配置禁止安装/升级/卸载模
 msgid ""
 "Import of %s is blocked by Access Manage Studio restrictions. "
 "Contact your administrator if you have questions."
-msgstr "您已被 Access Manage Studio 访问配置禁止导入 %s,如有疑问请联系管理员。"
+msgstr "您已被「权限管理大全」禁止导入 %s,如有疑问请联系管理员。"
 
 #. module: odoo_simplify_access_management
 #. odoo-python
@@ -677,9 +693,9 @@ msgid "Gantt"
 msgstr "甘特图 (Gantt)"
 
 #. module: odoo_simplify_access_management
-#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_domain_line__rule_id
-msgid "Generated Record Rule"
-msgstr "生成的记录规则"
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_domain_line__access_id
+msgid "Generated Access Restriction"
+msgstr "生成的访问限制"
 
 #. module: odoo_simplify_access_management
 #: model_terms:ir.ui.view,arch_db:odoo_simplify_access_management.sam_profile_view_form
@@ -960,3 +976,87 @@ msgstr "页签 (Tab)"
 #: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_profile__favicon
 msgid "Tab Icon (Favicon)"
 msgstr "页签图标 (Favicon)"
+
+#. module: odoo_simplify_access_management
+#. odoo-python
+#: code:addons/odoo_simplify_access_management/models/sam_profile.py:0
+msgid "Only Access Manage Studio managers can clean email templates."
+msgstr "只有「权限管理大全」管理员才能清理邮件模板。"
+
+#. module: odoo_simplify_access_management
+#. odoo-python
+#: code:addons/odoo_simplify_access_management/models/sam_profile.py:0
+msgid "Removed \"Powered by Odoo\" from %s email template(s)."
+msgstr "已从 %s 个邮件模板中移除 \"Powered by Odoo\" 区块。"
+
+#. module: odoo_simplify_access_management
+#. odoo-python
+#: code:addons/odoo_simplify_access_management/models/sam_profile.py:0
+msgid "No email template contains \"Powered by Odoo\" anymore."
+msgstr "所有邮件模板中已不存在 \"Powered by Odoo\",无需清理。"
+
+#. module: odoo_simplify_access_management
+#: model_terms:ir.ui.view,arch_db:odoo_simplify_access_management.sam_profile_view_form
+msgid "Remove \"Powered by Odoo\" from all Email Templates"
+msgstr "一键移除所有邮件模板中的 \"Powered by Odoo\""
+
+#. module: odoo_simplify_access_management
+#: model_terms:ir.ui.view,arch_db:odoo_simplify_access_management.sam_profile_view_form
+msgid "Remove the 'Powered by Odoo' block from the stored body of ALL email templates, in every installed language? Outgoing emails and previews are already cleaned automatically while White Label is enabled; this also cleans the body you see in the template editor. The operation is idempotent and can be re-run anytime."
+msgstr "确定从所有邮件模板正文(含所有已安装语言)中移除存量的 'Powered by Odoo' 区块吗?白标启用期间,发出的邮件和预览已自动实时清理;本操作让模板编辑器中看到的正文也干净。操作幂等,可随时重复执行。"
+
+#. module: odoo_simplify_access_management
+#: model_terms:ir.ui.view,arch_db:odoo_simplify_access_management.sam_profile_view_form
+msgid ""
+"While White Label is enabled, outgoing emails and template previews are\n"
+"                                        cleaned automatically on the fly (all languages). This button additionally\n"
+"                                        removes the stored \"Powered by Odoo\" block from every email template body\n"
+"                                        (Settings / Technical / Email Templates), so the template editor is clean\n"
+"                                        too. Re-run it after installing or upgrading modules that reload templates."
+msgstr ""
+"白标启用期间,发出的邮件与模板预览已自动实时清理(所有语言)。\n"
+"                                        本按钮额外把数据库中每个邮件模板正文里存量的 \"Powered by Odoo\" 区块\n"
+"                                        (设置 / 技术 / 电子邮件模板)一并移除,让模板编辑器中看到的正文也干净。\n"
+"                                        安装或升级模块重新加载模板后,可再次执行。"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model.fields,field_description:odoo_simplify_access_management.field_sam_profile__hide_notification_settings
+msgid "Hide Notification Settings (My Profile)"
+msgstr "隐藏通知设置(个人资料)"
+
+#. module: odoo_simplify_access_management
+#: model:ir.model.fields,help:odoo_simplify_access_management.field_sam_profile__hide_notification_settings
+msgid ""
+"In the user profile / preferences dialog, hide the browser \"notifications "
+"blocked\" alert banner and the Notification handling choice (Handle by "
+"Emails / Handle in Odoo); changing it via API is denied as well."
+msgstr ""
+"在用户\"我的资料/偏好设置\"弹窗中,隐藏浏览器\"通知已被阻止\"提醒横幅和"
+"\"通知\"处理方式选项(通过电子邮件处理 / 在Odoo中处理);同时拦截通过 API "
+"修改该设置。"
+
+#. module: odoo_simplify_access_management
+#. odoo-python
+#: code:addons/odoo_simplify_access_management/models/res_users.py:0
+msgid ""
+"Changing the notification handling setting is restricted by Access Manage "
+"Studio. Contact your administrator if you have questions."
+msgstr "通知处理方式已被「权限管理大全」限制修改,如有疑问请联系管理员。"
+
+#. module: base
+#: model:ir.module.module,shortdesc:base.module_odoo_simplify_access_management
+msgid "Access Manage Studio | Odoo Simplify Access Management"
+msgstr "权限管理大全"
+
+#. module: base
+#: model:ir.module.module,summary:base.module_odoo_simplify_access_management
+msgid ""
+"All in one access management: hide/readonly fields, models, menus, records,"
+" filters, buttons/tabs, views, actions, reports, chatter; disable developer"
+" mode, import/export, module install and XML-RPC per user.Remove white "
+"label: The most comprehensive guide to removing the \"odoo\" label from the"
+" system."
+msgstr ""
+"一体化权限管理:字段、模型、菜单、记录、筛选、按钮/页签、视图、动作、报表、沟通栏"
+"的隐藏/只读控制;可按用户禁用开发者模式、导入/导出、模块安装与 XML-RPC。"
+"白标去除:最全面的系统 Odoo 标识移除方案。"

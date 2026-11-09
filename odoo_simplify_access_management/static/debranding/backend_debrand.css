@@ -1,0 +1,43 @@
+/* 白标:隐藏后端界面里的 Odoo 品牌痕迹(导入界面)。
+ *
+ * 由 ir.asset debrand_backend_assets 承载,默认 active=False,随
+ * "隐藏 Odoo 品牌"开关一起启停(见 sam.profile.DEBRANDING_VIEW_XMLIDS)。
+ *
+ * 之所以用 CSS 而不是 Owl 模板继承(t-inherit)或 Python 重写:
+ * - 模板继承的 xpath 一旦因上游改版失配,整个 assets_backend 打包失败
+ *   会导致后台白屏;CSS 选择器不命中只是不生效,风险可控。
+ * - get_import_templates() 返回空虽能让按钮不渲染,但该方法是公共 RPC,
+ *   其他模块/外部集成可能调用它取模板地址,改返回值影响面不可控。
+ *
+ * 注意选择器不能锚定 aria-label="Download" / data-tooltip="Download":
+ * 这两个属性在 Owl 模板里是可翻译属性,中文界面下值会变成"下载"。
+ * Odoo 20 的图标改为 <i class="oi" data-icon="download">(不再是 fa-download),
+ * data-icon 是图标名,不随语言变化,以此锚定。 */
+
+/* 1. 上传页空状态的 Excel 模板下载按钮(t-foreach="importTemplates"):
+ *    部分模板(如会计凭证)在末页 Instructions sheet 里写死了大段 Odoo
+ *    说明,文件本身无法改写,连外层 div 一起隐藏。 */
+.o_import_action .o_nocontent_help div:has(> a > .oi[data-icon="download"]),
+
+/* 2. 上传页空状态的 "Documentation" 文档链接(DocumentationLink 组件,
+ *    渲染的 <a> 固定带 o_doc_link 类,指向 odoo.com 文档)。 */
+.o_import_action .o_nocontent_help .o_doc_link,
+
+/* 3. 载入文件后右侧栏的 Help 区块:内容只有模板下载链接与文档链接,
+ *    全部要隐藏,只剩一个空的 "Help" 标题反而突兀,整块隐藏。 */
+.o_import_data_sidepanel div:has(> .o_doc_link),
+
+/* 兜底:导入界面里其余位置出现的文档链接一律隐藏。 */
+.o_import_action .o_doc_link {
+    display: none !important;
+}
+
+/* 后台所有指向 odoo.com 官方文档的链接(设置页每个选项旁的 "?" 帮助图标、
+ * 视图中的 documentation 小部件、帮助文字里的文档链接等)。
+ * DocumentationLink 组件固定带 o_doc_link 类;只隐藏指向 odoo.com 的,
+ * 自定义的外部文档链接不受影响。 */
+a.o_doc_link[href*="odoo.com"],
+a[href*="odoo.com/documentation"],
+a[href*="odoo.com/slides"] {
+    display: none !important;
+}

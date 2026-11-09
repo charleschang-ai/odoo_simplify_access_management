@@ -1,0 +1,12 @@
+/* 白标:PDF 报表中的 Odoo 品牌图标。
+ *
+ * 发票等报表的付款二维码中央叠加了 Odoo 的 "O" 图标(img#qrcode_odoo_logo,
+ * account / l10n_my_edi 的报表模板)。这些模块不是本模块依赖,XML 无法
+ * 静态继承,改用报表公共样式隐藏;二维码本身可正常扫描,不受影响。
+ *
+ * 由 ir.asset debrand_report_assets 承载(web.report_assets_common),默认
+ * active=False,随"隐藏 Odoo 品牌"开关一起启停。 */
+#qrcode_odoo_logo,
+img[src*="/account/static/src/img/Odoo_logo"] {
+    display: none !important;
+}

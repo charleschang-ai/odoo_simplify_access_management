@@ -10,11 +10,13 @@
         <xpath expr="//a[contains(@href, 'utm_medium=auth')]" position="replace"/>
     </template>
 
-    <!-- 通知邮件(完整布局)底部 "Powered by Odoo",保留退订链接 -->
+    <!-- 通知邮件(完整布局)底部 "Powered by Odoo",保留退订链接。
+         必须保留原模板的显示条件:页脚仅在 show_footer 时出现,退订链接
+         还需 show_unfollow(否则发给客户的邮件也会出现 Unfollow)。 -->
     <template id="debrand_mail_layout_footer" name="Debranding: mail layout footer"
               inherit_id="mail.mail_notification_layout" active="False">
         <xpath expr="//div[a[contains(@href, 'utm_medium=email')]]" position="replace">
-            <div style="color: #555555; font-size:11px;">
+            <div t-if="show_footer and show_unfollow" style="color: #555555; font-size:11px;">
                 <span id="mail_unfollow">
                     <a href="/mail/unfollow" style="text-decoration:none; color:#555555;">Unfollow</a>
                 </span>
@@ -22,16 +24,25 @@
         </xpath>
     </template>
 
-    <!-- 通知邮件(轻量布局)底部 "Powered by Odoo",保留退订链接 -->
+    <!-- 通知邮件(轻量布局)底部 "Powered by Odoo",保留退订链接(同样保留
+         原模板的 show_unfollow 条件) -->
     <template id="debrand_mail_light_footer" name="Debranding: mail light footer"
               inherit_id="mail.mail_notification_light" active="False">
         <xpath expr="//td[a[contains(@href, 'utm_medium=email')]]" position="replace">
             <td align="center" style="min-width: 590px;">
-                <span id="mail_unfollow">
+                <span t-if="show_unfollow" id="mail_unfollow">
                     <a href="/mail/unfollow" style="text-decoration:none; color:#555555;">Unfollow</a>
                 </span>
             </td>
         </xpath>
+    </template>
+
+    <!-- 前台品牌推广条 "Powered by [Odoo logo]":web.brand_promotion_message
+         是公共模板,调查问卷(survey)页脚、网站页脚、登录页等所有 t-call
+         它的位置一并清空。 -->
+    <template id="debrand_brand_promotion" name="Debranding: brand promotion message"
+              inherit_id="web.brand_promotion_message" active="False">
+        <xpath expr="//t[@t-out]" position="replace"/>
     </template>
 
     <template id="debrand_portal_record_sidebar"  name="Debranding: portal sidebar" inherit_id="portal.portal_record_sidebar" active="False">
@@ -41,5 +52,93 @@
             </div>
         </xpath>
     </template>
+
+    <!-- 门户单据页的 "Connect with your software!" 按钮与推广弹窗
+         (销售 sale / 采购 purchase)。两者都不是本模块依赖,XML 里无法
+         静态继承其模板,改用 CSS 按元素 id 隐藏;ir.asset 同样带 active
+         字段,可与其它白标视图一起被开关切换。 -->
+    <record id="debrand_portal_assets" model="ir.asset">
+        <field name="name">Debranding: portal connect-software</field>
+        <field name="bundle">web.assets_frontend</field>
+        <field name="path">odoo_simplify_access_management/static/debranding/portal_debrand.css</field>
+        <field name="active" eval="False"/>
+    </record>
+
+    <!-- 后端界面指向 odoo.com 的帮助入口(导入界面的 "Import FAQ" 等) -->
+    <!-- 前台(portal / website)去 odoo 化脚本:改写硬编码 /odoo 链接与
+         "Odoo" 文案。用 ir.asset(带 active 字段)随白标开关一起切换。 -->
+    <record id="debrand_frontend_assets" model="ir.asset">
+        <field name="name">Debranding: frontend /odoo links</field>
+        <field name="bundle">web.assets_frontend</field>
+        <field name="path">odoo_simplify_access_management/static/debranding/frontend_debrand.js</field>
+        <field name="active" eval="False"/>
+    </record>
+
+    <record id="debrand_backend_assets" model="ir.asset">
+        <field name="name">Debranding: backend documentation links</field>
+        <field name="bundle">web.assets_backend</field>
+        <field name="path">odoo_simplify_access_management/static/debranding/backend_debrand.css</field>
+        <field name="active" eval="False"/>
+    </record>
+
+    <!-- 设置页底部 "About" 区块(res_config_edition widget:
+         Odoo 版本/版权/odoo.com 链接) -->
+    <!-- 前台(portal / website)注入白标前缀到 <head> 的 meta,供 assets_frontend
+         的 JS 读取以改写硬编码的 /odoo 链接与 "Odoo" 文案。portal.frontend_layout
+         是所有前台页面(含 website.layout)的基类,故一处即覆盖全部前台。
+         用 meta 而非内联脚本,避免前台 CSP 限制。 -->
+    <template id="debrand_frontend_prefix_meta" name="Debranding: frontend prefix meta"
+              inherit_id="portal.frontend_layout" active="False">
+        <xpath expr="//head/meta[1]" position="before">
+            <t t-set="_sam_cfg" t-value="env['sam.profile'].sudo()._get_debranding()"/>
+            <meta t-if="_sam_cfg.get('enabled') and _sam_cfg.get('prefix')"
+                  name="sam-debrand-prefix" t-att-content="_sam_cfg.get('prefix')"/>
+            <meta t-if="_sam_cfg.get('enabled')"
+                  name="sam-debrand-brand" t-att-content="_sam_cfg.get('brand') or ''"/>
+        </xpath>
+    </template>
+
+    <!-- 前台(portal / website)用户下拉菜单里的 "Apps" 链接,硬编码指向
+         /odoo。用配置的前缀改写 href,浏览器状态栏不再出现 odoo 字样。
+         portal 是本模块依赖,website 前台也会渲染此模板,故一处即覆盖两端。 -->
+    <template id="debrand_portal_apps_link" name="Debranding: portal user-menu Apps link"
+              inherit_id="portal.user_dropdown" active="False">
+        <xpath expr="//a[@id='o_backend_user_dropdown_link']" position="attributes">
+            <attribute name="t-att-href">'/' + (env['sam.profile'].sudo()._get_debranding().get('prefix') or 'odoo')</attribute>
+        </xpath>
+    </template>
+
+    <!-- PDF 报表中付款二维码中央的 Odoo "O" 图标 -->
+    <record id="debrand_report_assets" model="ir.asset">
+        <field name="name">Debranding: report Odoo logo</field>
+        <field name="bundle">web.report_assets_common</field>
+        <field name="path">odoo_simplify_access_management/static/debranding/report_debrand.css</field>
+        <field name="active" eval="False"/>
+    </record>
+
+    <!-- PWA 离线页(/odoo/offline)的 Odoo 图标 -->
+    <template id="debrand_webclient_offline_icon" name="Debranding: offline page icon"
+              inherit_id="web.webclient_offline" active="False">
+        <xpath expr="//div[hasclass('card')]/img" position="replace"/>
+    </template>
+
+    <!-- iOS "添加到主屏幕" 图标:配置了白标图标时用它,否则不输出 Odoo 图标 -->
+    <template id="debrand_apple_touch_icon" name="Debranding: apple touch icon"
+              inherit_id="web.webclient_bootstrap" active="False">
+        <xpath expr="//link[@rel='apple-touch-icon']" position="attributes">
+            <attribute name="t-if">env['sam.profile'].sudo()._get_debranding().get('favicon')</attribute>
+            <attribute name="href">/sam/favicon</attribute>
+        </xpath>
+    </template>
+
+    <record id="debrand_settings_about" model="ir.ui.view">
+        <field name="name">Debranding: settings about block</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base_setup.res_config_settings_view_form"/>
+        <field name="active" eval="False"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@id='about']" position="replace"/>
+        </field>
+    </record>
 
 </odoo>
