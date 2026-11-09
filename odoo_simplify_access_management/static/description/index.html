@@ -1,103 +1,333 @@
-<!DOCTYPE html>
-<html lang="en">
+<section style="font-family:'Inter','Segoe UI',Roboto,Helvetica,Arial,sans-serif;color:#1F2937;background:#FFFFFF;">
+<div class="container" style="max-width:1140px;margin:0 auto;padding:0 16px;">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Odoo App 3 Index</title>
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-</head>
-
-<body>
-<section>
-    <div class="container" style="font-family: 'Inter', sans-serif !important;background-color: #fff !important;">
-        <div class="row">
-            <div class="col-sm-12 col-md-12 col-lg-12 d-flex justify-content-between flex-wrap align-items-sm-center"
-                 style="border-bottom:1px solid rgba(0, 0, 0, 0.22)">
-                <div class="my-3 d-flex align-items-center">
-                    <div class="text-center"
-                         style="background-color:#017E84 !important;font-size: 0.8rem !important; color:#fff !important; font-weight:500 !important; padding:4px !important; margin:0 3px !important; border-radius:50px !important; min-width: 120px !important;">
-                        Community
-                    </div>
-                    <div class="text-center"
-                         style="background-color:#875A7B!important; color:#fff !important;font-size: 0.8rem !important; font-weight:500 !important; padding:4px !important; margin:0 3px !important; border-radius:50px !important;min-width: 120px !important;">
-                        Enterprise
-                    </div>
-                </div>
-                <div class="my-3 d-flex align-items-center">
-                    <div class="text-center"
-                         style="background-color:#875A7B!important; color:#fff !important;font-size: 0.8rem !important; font-weight:500 !important; padding:4px !important; margin:0 3px !important; border-radius:50px !important;min-width: 120px !important;">
-                        V18
-                    </div>
-                </div>
-            </div>
+    <!-- ============ BADGES ============ -->
+    <div style="display:flex;justify-content:space-between;flex-wrap:wrap;align-items:center;border-bottom:1px solid #E5E7EB;padding:14px 0;">
+        <div style="display:flex;flex-wrap:wrap;">
+            <span style="background:#017E84;color:#fff;font-size:13px;font-weight:600;padding:5px 18px;margin:3px;border-radius:50px;">Community</span>
+            <span style="background:#875A7B;color:#fff;font-size:13px;font-weight:600;padding:5px 18px;margin:3px;border-radius:50px;">Enterprise</span>
+            <span style="background:#374151;color:#fff;font-size:13px;font-weight:600;padding:5px 18px;margin:3px;border-radius:50px;">Odoo.sh / On-Premise</span>
         </div>
-        <div class="row">
-            <div class="col-sm-12 col-md-12 col-lg-12 text-center d-flex align-items-center flex-column"
-                 style="margin: 80px 0px !important;">
-                <h1 style="font-size: 2.8rem;font-weight: 700; color:
-                    #1A202C;">
-                    Access Manage Studio | Odoo Simplify Access Management</h1>
-                <p class="my-3 mb-4"
-                   style="max-width: 80%; font-weight: 400 !important; line-height: 32px; color: #718096;">
-                <h2>'All in one access management: hide/readonly fields, models, '
-                    'menus, records, filters, buttons/tabs, views, actions, '
-                    'reports, chatter; disable developer mode, import/export, '
-                    'module install and XML-RPC per user.Remove white label: '
-                    'The most comprehensive guide to removing the "odoo" label from the system.</h2>
-                </p>
-                <div style="width: 80%; margin-top: 1rem;">
-                    <img src="assets/screenshots/img1.png" class="img-responsive" width="100%" height="auto">
-                </div>
-                <br/>
-                <h2>1. One-stop configuration, company-wide control – Control what anyone can see and do with just a few
-                    clicks, by user/user group/company, no technical background required.<br/>
-
-                    2. True server-side enforcement – Not just interface hiding, bypassing the page to directly call
-                    the API will still be rejected.<br/>
-
-                    3. Data-level logging permissions – Domain rules automatically generate true logging rules; even
-                    knowing the record ID and directly reading it will be blocked.<br/>
-
-                    4. Disable developer mode – Completely block ?debug=1, preventing users from bypassing interface
-                    restrictions.<br/>
-
-                    5. Disable XML-RPC scripts – External scripts cannot manipulate data as restricted users.<br/>
-
-                    6. Instant effect – After saving the configuration, the restricted user's browser automatically
-                    refreshes; no restart or manual operation required from the other party.<br/>
-
-                    7. One-click login ban – Ban/restore user login at any time without disabling the account.<br/></h2>
-                <br/>
-                <div style="width: 80%; margin-top: 1rem;">
-                    <img src="assets/screenshots/img2.png" class="img-responsive" width="100%" height="auto">
-                </div>
-                <br/>
-                <div style="width: 80%; margin-top: 1rem;">
-                    <img src="assets/screenshots/img3.png" class="img-responsive" width="100%" height="auto">
-                </div>
-                <br/>
-
-                <br/>
-                <br/>
-                <p class="my-3 mb-4"
-                   style="max-width: 80%; font-weight: 400 !important; line-height: 32px; color: #718096;">
-                    If you have any questions, please contact me at 18438630181@163.com
-                </p>
-            </div>
-
+        <div style="display:flex;flex-wrap:wrap;">
+            <span style="background:#875A7B;color:#fff;font-size:13px;font-weight:600;padding:5px 18px;margin:3px;border-radius:50px;">Odoo 19</span>
         </div>
     </div>
+
+    <!-- ============ HERO ============ -->
+    <div style="text-align:center;padding:64px 0 32px;">
+        <div style="display:inline-block;background:#E6F4F4;color:#017E84;font-weight:700;font-size:13px;letter-spacing:1px;padding:6px 16px;border-radius:50px;margin-bottom:18px;">ALL-IN-ONE ACCESS CONTROL + WHITE LABEL</div>
+        <h1 style="font-size:44px;font-weight:800;line-height:1.2;color:#111827;margin:0 0 18px;">Access Manage Studio</h1>
+        <h2 style="font-size:24px;font-weight:600;line-height:1.45;color:#374151;margin:0 auto 18px;max-width:880px;">
+            Decide exactly what every user can <span style="color:#017E84;">see</span> and <span style="color:#875A7B;">do</span> in Odoo &mdash;
+            menus, models, fields, records, buttons, tabs, filters, views, actions, reports and chatter &mdash;
+            from <u>one screen</u>, without writing a single line of code.
+        </h2>
+        <p style="font-size:17px;line-height:1.7;color:#6B7280;max-width:820px;margin:0 auto 30px;">
+            Not just cosmetic hiding: every rule is <b>enforced on the server (ORM level)</b>, so restricted users
+            cannot bypass it through the URL, debug mode, the API or external scripts. Plus a complete
+            <b>White Label</b> that removes the &ldquo;Odoo&rdquo; brand from login page, notification emails, browser title, user menu, URLs and more.
+        </p>
+
+        <div style="display:flex;flex-wrap:wrap;justify-content:center;margin-bottom:36px;">
+            <div style="background:#F9FAFB;border:1px solid #E5E7EB;border-radius:14px;padding:16px 22px;margin:6px;min-width:190px;">
+                <div style="font-size:28px;font-weight:800;color:#017E84;">10+</div>
+                <div style="font-size:14px;color:#6B7280;">rule types in one profile</div>
+            </div>
+            <div style="background:#F9FAFB;border:1px solid #E5E7EB;border-radius:14px;padding:16px 22px;margin:6px;min-width:190px;">
+                <div style="font-size:28px;font-weight:800;color:#875A7B;">100%</div>
+                <div style="font-size:14px;color:#6B7280;">server-side enforcement</div>
+            </div>
+            <div style="background:#F9FAFB;border:1px solid #E5E7EB;border-radius:14px;padding:16px 22px;margin:6px;min-width:190px;">
+                <div style="font-size:28px;font-weight:800;color:#017E84;">0 s</div>
+                <div style="font-size:14px;color:#6B7280;">no restart &ndash; applies instantly</div>
+            </div>
+            <div style="background:#F9FAFB;border:1px solid #E5E7EB;border-radius:14px;padding:16px 22px;margin:6px;min-width:190px;">
+                <div style="font-size:28px;font-weight:800;color:#875A7B;">0</div>
+                <div style="font-size:14px;color:#6B7280;">lines of code / XML needed</div>
+            </div>
+        </div>
+
+        <img src="assets/screenshots/img01_profile_form.png" alt="Access profile form" style="width:100%;max-width:1100px;border-radius:12px;border:1px solid #E5E7EB;box-shadow:0 20px 50px rgba(17,24,39,.12);"/>
+        <p style="font-size:14px;color:#9CA3AF;margin-top:12px;">One access profile: choose users / groups / companies, tick global restrictions, then fine-tune every detail in the tabs.</p>
+    </div>
+
+    <!-- ============ PAIN POINTS ============ -->
+    <div style="padding:40px 0;">
+        <h2 style="text-align:center;font-size:32px;font-weight:800;color:#111827;margin:0 0 10px;">Native Odoo groups are not enough</h2>
+        <p style="text-align:center;font-size:17px;color:#6B7280;max-width:760px;margin:0 auto 32px;">Standard Odoo permissions are coarse: they work per model, require XML and record rules, and cannot hide a single button, tab, filter or menu for one person. Access Manage Studio closes that gap.</p>
+        <div style="display:flex;flex-wrap:wrap;margin:0 -8px;">
+            <div style="flex:1 1 320px;margin:8px;background:#FEF2F2;border-radius:14px;padding:24px;">
+                <div style="font-weight:700;color:#B91C1C;font-size:15px;margin-bottom:12px;">WITHOUT this module</div>
+                <div style="font-size:15px;line-height:2;color:#374151;">
+                    &#10007; Sales staff see cost prices and every colleague&rsquo;s orders<br/>
+                    &#10007; Users export your whole customer list to Excel<br/>
+                    &#10007; Anyone types <code>?debug=1</code> and sees technical menus<br/>
+                    &#10007; A script with a user&rsquo;s password can read everything via XML-RPC<br/>
+                    &#10007; Hiding one button means custom XML inheritance and a developer<br/>
+                    &#10007; &ldquo;Powered by Odoo&rdquo; everywhere in front of your customers
+                </div>
+            </div>
+            <div style="flex:1 1 320px;margin:8px;background:#ECFDF5;border-radius:14px;padding:24px;">
+                <div style="font-weight:700;color:#047857;font-size:15px;margin-bottom:12px;">WITH Access Manage Studio</div>
+                <div style="font-size:15px;line-height:2;color:#374151;">
+                    &#10003; Hide/readonly any field, limit records with a domain<br/>
+                    &#10003; Block export/import per model or globally<br/>
+                    &#10003; Developer mode disabled for selected users, even via URL<br/>
+                    &#10003; XML-RPC / JSON-RPC / external API blocked per user<br/>
+                    &#10003; Hide any button, smart button or tab by name &ndash; in a few clicks<br/>
+                    &#10003; Your brand, your name, your URL &ndash; full White Label
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============ FEATURE GRID ============ -->
+    <div style="padding:30px 0 40px;">
+        <h2 style="text-align:center;font-size:32px;font-weight:800;color:#111827;margin:0 0 32px;">Everything you can control &mdash; in one place</h2>
+        <div style="display:flex;flex-wrap:wrap;margin:0 -8px;">
+            <div style="flex:1 1 250px;margin:8px;border:1px solid #E5E7EB;border-radius:14px;padding:20px;">
+                <div style="font-size:26px;">&#128450;</div><div style="font-weight:700;font-size:17px;margin:6px 0;">Menus</div>
+                <div style="font-size:14px;color:#6B7280;line-height:1.6;">Hide any app or menu; its sub-menus are hidden automatically.</div></div>
+            <div style="flex:1 1 250px;margin:8px;border:1px solid #E5E7EB;border-radius:14px;padding:20px;">
+                <div style="font-size:26px;">&#128230;</div><div style="font-weight:700;font-size:17px;margin:6px 0;">Models</div>
+                <div style="font-size:14px;color:#6B7280;line-height:1.6;">Block create / edit / delete / duplicate / archive / export / import, or make a model fully read-only.</div></div>
+            <div style="flex:1 1 250px;margin:8px;border:1px solid #E5E7EB;border-radius:14px;padding:20px;">
+                <div style="font-size:26px;">&#9998;</div><div style="font-weight:700;font-size:17px;margin:6px 0;">Fields</div>
+                <div style="font-size:14px;color:#6B7280;line-height:1.6;">Hidden / read-only / required &ndash; also inside one2many lines. Remove internal links and &ldquo;Create / Create and edit&rdquo; on relational fields.</div></div>
+            <div style="flex:1 1 250px;margin:8px;border:1px solid #E5E7EB;border-radius:14px;padding:20px;">
+                <div style="font-size:26px;">&#128273;</div><div style="font-weight:700;font-size:17px;margin:6px 0;">Records</div>
+                <div style="font-size:14px;color:#6B7280;line-height:1.6;">Domain-based record restrictions converted into real Odoo record rules (<code>ir.rule</code>), per read / write / create / delete.</div></div>
+            <div style="flex:1 1 250px;margin:8px;border:1px solid #E5E7EB;border-radius:14px;padding:20px;">
+                <div style="font-size:26px;">&#128433;</div><div style="font-weight:700;font-size:17px;margin:6px 0;">Buttons &amp; Tabs</div>
+                <div style="font-size:14px;color:#6B7280;line-height:1.6;">Hide any header button, smart button or notebook tab by technical name or by label.</div></div>
+            <div style="flex:1 1 250px;margin:8px;border:1px solid #E5E7EB;border-radius:14px;padding:20px;">
+                <div style="font-size:26px;">&#128269;</div><div style="font-weight:700;font-size:17px;margin:6px 0;">Filters &amp; Group By</div>
+                <div style="font-size:14px;color:#6B7280;line-height:1.6;">Remove any filter or grouping option from the search panel.</div></div>
+            <div style="flex:1 1 250px;margin:8px;border:1px solid #E5E7EB;border-radius:14px;padding:20px;">
+                <div style="font-size:26px;">&#128202;</div><div style="font-weight:700;font-size:17px;margin:6px 0;">Views</div>
+                <div style="font-size:14px;color:#6B7280;line-height:1.6;">Hide view types per model: list, kanban, pivot, graph, calendar, map, cohort, gantt&hellip;</div></div>
+            <div style="flex:1 1 250px;margin:8px;border:1px solid #E5E7EB;border-radius:14px;padding:20px;">
+                <div style="font-size:26px;">&#128424;</div><div style="font-weight:700;font-size:17px;margin:6px 0;">Reports &amp; Actions</div>
+                <div style="font-size:14px;color:#6B7280;line-height:1.6;">Remove selected reports from the Print menu and actions from the gear (Actions) menu.</div></div>
+            <div style="flex:1 1 250px;margin:8px;border:1px solid #E5E7EB;border-radius:14px;padding:20px;">
+                <div style="font-size:26px;">&#128172;</div><div style="font-weight:700;font-size:17px;margin:6px 0;">Chatter</div>
+                <div style="font-size:14px;color:#6B7280;line-height:1.6;">Hide the whole chatter, or block Send message / Log note / Activities &ndash; per model or for all models.</div></div>
+            <div style="flex:1 1 250px;margin:8px;border:1px solid #E5E7EB;border-radius:14px;padding:20px;">
+                <div style="font-size:26px;">&#128737;</div><div style="font-weight:700;font-size:17px;margin:6px 0;">Global Lockdown</div>
+                <div style="font-size:14px;color:#6B7280;line-height:1.6;">Global read-only, disable developer mode, block module install/upgrade/uninstall, disable import/export, block XML-RPC, deny login.</div></div>
+            <div style="flex:1 1 250px;margin:8px;border:1px solid #E5E7EB;border-radius:14px;padding:20px;">
+                <div style="font-size:26px;">&#127991;</div><div style="font-weight:700;font-size:17px;margin:6px 0;">White Label</div>
+                <div style="font-size:14px;color:#6B7280;line-height:1.6;">Remove Odoo branding from login page, notification emails, browser title, favicon, user menu, PWA, portal sidebar and URLs.</div></div>
+            <div style="flex:1 1 250px;margin:8px;border:1px solid #E5E7EB;border-radius:14px;padding:20px;">
+                <div style="font-size:26px;">&#127970;</div><div style="font-weight:700;font-size:17px;margin:6px 0;">Users, Groups, Companies</div>
+                <div style="font-size:14px;color:#6B7280;line-height:1.6;">Apply a profile to users, to whole user groups, and limit it to specific companies (multi-company ready).</div></div>
+        </div>
+    </div>
+
+    <!-- ============ SECTION HEADER ============ -->
+    <div style="text-align:center;padding:30px 0 10px;">
+        <h2 style="font-size:34px;font-weight:800;color:#111827;margin:0 0 10px;">See it in action: before &amp; after</h2>
+        <p style="font-size:17px;color:#6B7280;max-width:780px;margin:0 auto;">All screenshots below come from the <b>same user</b> (a salesperson) &mdash; left without a profile, right after applying one access profile. Nothing else was changed. <i>(Screenshots taken on the Odoo 20 interface; the Odoo 19 screens look almost identical.)</i></p>
+    </div>
+
+    <!-- 1. MENUS -->
+    <div style="padding:36px 0;border-bottom:1px solid #F3F4F6;">
+        <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;">01 &middot; MENUS</div>
+        <h3 style="font-size:26px;font-weight:800;color:#111827;margin:6px 0 10px;">Show each team only the apps they need</h3>
+        <p style="font-size:16px;line-height:1.7;color:#4B5563;margin:0 0 18px;">Purchase, Invoicing, Employees, Dashboards, Sales/Reporting and Sales/Configuration are gone for this salesperson &ndash; and so are all their sub-menus. Simply pick menus from a list.</p>
+        <img src="assets/screenshots/img03_menus_before_after.png" style="width:100%;border-radius:10px;border:1px solid #E5E7EB;"/>
+        <img src="assets/screenshots/img20_tab_hidden_menus.png" style="width:100%;border-radius:10px;border:1px solid #E5E7EB;margin-top:14px;"/>
+    </div>
+
+    <!-- 2. FORM -->
+    <div style="padding:36px 0;border-bottom:1px solid #F3F4F6;">
+        <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;">02 &middot; FIELDS, BUTTONS, TABS &amp; CHATTER</div>
+        <h3 style="font-size:26px;font-weight:800;color:#111827;margin:6px 0 10px;">Fine-grained control inside every form</h3>
+        <p style="font-size:16px;line-height:1.7;color:#4B5563;margin:0 0 6px;">On the same quotation, the restricted user no longer has the <b>Preview</b> and <b>Cancel</b> buttons, the <b>Other Info</b> tab, nor <b>Send message</b> and <b>Activity</b> in the chatter. <b>Payment Terms</b> became read-only, <b>Expiration</b> is mandatory, and <b>Unit Price</b> can no longer be changed.</p>
+        <p style="font-size:16px;line-height:1.7;color:#4B5563;margin:0 0 18px;">Field rules are applied to the view <i>and</i> enforced on write: even if someone forges a request, a read-only field cannot be modified.</p>
+        <img src="assets/screenshots/img04_form_before_after.png" style="width:100%;border-radius:10px;border:1px solid #E5E7EB;"/>
+        <div style="display:flex;flex-wrap:wrap;margin:6px -7px 0;">
+            <div style="flex:1 1 460px;margin:7px;"><img src="assets/screenshots/img22_tab_field_rules.png" style="width:100%;border-radius:10px;border:1px solid #E5E7EB;"/></div>
+            <div style="flex:1 1 460px;margin:7px;"><img src="assets/screenshots/img24_tab_buttons.png" style="width:100%;border-radius:10px;border:1px solid #E5E7EB;"/>
+                <img src="assets/screenshots/img27_tab_chatter.png" style="width:100%;border-radius:10px;border:1px solid #E5E7EB;margin-top:14px;"/></div>
+        </div>
+    </div>
+
+    <!-- 3. RECORDS -->
+    <div style="padding:36px 0;border-bottom:1px solid #F3F4F6;">
+        <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;">03 &middot; RECORD RULES</div>
+        <h3 style="font-size:26px;font-weight:800;color:#111827;margin:6px 0 10px;">&ldquo;Only my own orders&rdquo; &ndash; enforced at data level</h3>
+        <p style="font-size:16px;line-height:1.7;color:#4B5563;margin:0 0 18px;">One line &ndash; <code>[('user_id', '=', user.id)]</code> &ndash; and the salesperson sees 13 of their own orders instead of all 21. The domain is turned into a real Odoo record rule (<code>ir.rule</code>), so opening another order directly by URL or ID is refused by the server. Supports <code>user</code>, <code>uid</code>, <code>company_id</code>, <code>company_ids</code> and <code>time</code>, with separate read / write / create / delete checkboxes.</p>
+        <img src="assets/screenshots/img05_records_before_after.png" style="width:100%;border-radius:10px;border:1px solid #E5E7EB;"/>
+        <div style="display:flex;flex-wrap:wrap;margin:6px -7px 0;align-items:flex-start;">
+            <div style="flex:1 1 460px;margin:7px;"><img src="assets/screenshots/img06_record_access_error.png" style="width:100%;border-radius:10px;border:1px solid #E5E7EB;"/>
+                <p style="font-size:13px;color:#9CA3AF;margin-top:6px;">Opening someone else&rsquo;s order by URL &rarr; Access Error.</p></div>
+            <div style="flex:1 1 460px;margin:7px;"><img src="assets/screenshots/img23_tab_record_rules.png" style="width:100%;border-radius:10px;border:1px solid #E5E7EB;"/></div>
+        </div>
+    </div>
+
+    <!-- 4. FILTERS & VIEWS -->
+    <div style="padding:36px 0;border-bottom:1px solid #F3F4F6;">
+        <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;">04 &middot; FILTERS, GROUP BY &amp; VIEW TYPES</div>
+        <h3 style="font-size:26px;font-weight:800;color:#111827;margin:6px 0 10px;">A cleaner search panel and only the views that matter</h3>
+        <p style="font-size:16px;line-height:1.7;color:#4B5563;margin:0 0 18px;">&ldquo;Group by Salesperson&rdquo; and &ldquo;To Upsell&rdquo; disappear from the search panel; Pivot, Graph, Map and Cohort disappear from the view switcher &ndash; no more peeking at team-wide analytics.</p>
+        <img src="assets/screenshots/img07_filters_views_before_after.png" style="width:100%;border-radius:10px;border:1px solid #E5E7EB;"/>
+        <div style="display:flex;flex-wrap:wrap;margin:6px -7px 0;">
+            <div style="flex:1 1 460px;margin:7px;"><img src="assets/screenshots/img25_tab_filters.png" style="width:100%;border-radius:10px;border:1px solid #E5E7EB;"/></div>
+            <div style="flex:1 1 460px;margin:7px;"><img src="assets/screenshots/img26_tab_hidden_views.png" style="width:100%;border-radius:10px;border:1px solid #E5E7EB;"/></div>
+        </div>
+    </div>
+
+    <!-- 5. ACTIONS / MODELS -->
+    <div style="padding:36px 0;border-bottom:1px solid #F3F4F6;">
+        <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;">05 &middot; MODEL RULES, ACTIONS &amp; REPORTS</div>
+        <h3 style="font-size:26px;font-weight:800;color:#111827;margin:6px 0 10px;">No delete, no duplicate, no export &ndash; where you decide</h3>
+        <p style="font-size:16px;line-height:1.7;color:#4B5563;margin:0 0 18px;">On Sales Orders, <b>Duplicate</b> and <b>Delete</b> are gone together with the <b>Share</b>, <b>Save as template</b> and <b>Close Invoicing</b> actions and the <b>PRO-FORMA</b> report. On Contacts the <b>New</b> button disappears &ndash; and creating a contact through the API is refused too.</p>
+        <img src="assets/screenshots/img08_actions_before_after.png" style="width:100%;border-radius:10px;border:1px solid #E5E7EB;"/>
+        <img src="assets/screenshots/img09_model_rules_before_after.png" style="width:100%;border-radius:10px;border:1px solid #E5E7EB;margin-top:14px;"/>
+        <div style="display:flex;flex-wrap:wrap;margin:6px -7px 0;">
+            <div style="flex:1 1 460px;margin:7px;"><img src="assets/screenshots/img21_tab_model_rules.png" style="width:100%;border-radius:10px;border:1px solid #E5E7EB;"/></div>
+            <div style="flex:1 1 460px;margin:7px;"><img src="assets/screenshots/img28_tab_reports.png" style="width:100%;border-radius:10px;border:1px solid #E5E7EB;"/></div>
+        </div>
+    </div>
+
+    <!-- 6. SECURITY -->
+    <div style="padding:36px 0;border-bottom:1px solid #F3F4F6;">
+        <div style="font-size:13px;font-weight:700;color:#875A7B;letter-spacing:1px;">06 &middot; SECURITY LOCKDOWN</div>
+        <h3 style="font-size:26px;font-weight:800;color:#111827;margin:6px 0 10px;">Close the back doors: debug mode and external API</h3>
+        <p style="font-size:16px;line-height:1.7;color:#4B5563;margin:0 0 18px;">Interface rules are useless if a user can switch on developer mode or use a script. Below, the same user opens <code>/odoo?debug=1</code>: on the left the debug tools appear, on the right they never load.</p>
+        <img src="assets/screenshots/img10_debug_before_after.png" style="width:100%;border-radius:10px;border:1px solid #E5E7EB;"/>
+        <p style="font-size:16px;line-height:1.7;color:#4B5563;margin:18px 0 10px;">And a real XML-RPC call with the restricted user&rsquo;s own login and password:</p>
+        <div style="background:#111827;color:#E5E7EB;border-radius:10px;padding:18px 20px;font-family:Consolas,Menlo,monospace;font-size:14px;line-height:1.7;overflow-x:auto;">
+            <span style="color:#9CA3AF;"># python &mdash; restricted user calling the API</span><br/>
+            models.execute_kw(db, uid, password, <span style="color:#86EFAC;">'sale.order'</span>, <span style="color:#86EFAC;">'get_views'</span>, ...)<br/>
+            <span style="color:#FCA5A5;">xmlrpc.client.Fault: &lt;Fault 3: 'XML-RPC/JSON-RPC access is disabled for this user by Access Manage Studio.'&gt;</span>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;margin:18px -8px 0;">
+            <div style="flex:1 1 250px;margin:8px;background:#F9FAFB;border-radius:12px;padding:16px;font-size:14px;line-height:1.6;color:#4B5563;"><b style="color:#111827;">Disable developer mode</b><br/>including <code>?debug=1</code>, <code>?debug=assets</code> and tests mode.</div>
+            <div style="flex:1 1 250px;margin:8px;background:#F9FAFB;border-radius:12px;padding:16px;font-size:14px;line-height:1.6;color:#4B5563;"><b style="color:#111827;">Block XML-RPC / JSON-RPC</b><br/>external scripts cannot act as the restricted user.</div>
+            <div style="flex:1 1 250px;margin:8px;background:#F9FAFB;border-radius:12px;padding:16px;font-size:14px;line-height:1.6;color:#4B5563;"><b style="color:#111827;">Block module actions</b><br/>no install / upgrade / uninstall of apps.</div>
+            <div style="flex:1 1 250px;margin:8px;background:#F9FAFB;border-radius:12px;padding:16px;font-size:14px;line-height:1.6;color:#4B5563;"><b style="color:#111827;">Global read-only &amp; deny login</b><br/>freeze a user, or block login without archiving the account.</div>
+        </div>
+    </div>
+
+    <!-- 7. WHITE LABEL -->
+    <div style="padding:36px 0;border-bottom:1px solid #F3F4F6;">
+        <div style="font-size:13px;font-weight:700;color:#875A7B;letter-spacing:1px;">07 &middot; WHITE LABEL</div>
+        <h3 style="font-size:26px;font-weight:800;color:#111827;margin:6px 0 10px;">Your brand everywhere &ndash; the most complete Odoo debranding</h3>
+        <p style="font-size:16px;line-height:1.7;color:#4B5563;margin:0 0 18px;">Tick <b>Hide Odoo Branding</b>, enter your brand name, bot name and optional URL prefix &ndash; done. It is site-wide and can be switched off at any time.</p>
+        <h4 style="font-size:18px;font-weight:700;color:#111827;margin:10px 0;">User menu: links to odoo.com removed</h4>
+        <img src="assets/screenshots/img13_wl_usermenu_before_after.png" style="width:100%;border-radius:10px;border:1px solid #E5E7EB;"/>
+        <div style="display:flex;flex-wrap:wrap;margin:24px -8px 0;align-items:flex-start;">
+                        <div style="flex:1 1 400px;margin:8px;background:#FAF5F9;border-radius:14px;padding:22px;">
+                <div style="font-weight:700;font-size:16px;color:#875A7B;margin-bottom:10px;">What White Label covers</div>
+                <div style="font-size:14px;line-height:1.9;color:#374151;">
+                    &#10003; Login page &ldquo;Powered by Odoo&rdquo;<br/>
+                    &#10003; Browser tab title &amp; favicon<br/>
+                    &#10003; &ldquo;Powered by Odoo&rdquo; footer in notification emails<br/>
+                    &#10003; User menu links to odoo.com (Documentation, Support, My Odoo.com account)<br/>
+                    &#10003; PWA app name<br/>
+                    &#10003; Portal sidebar branding<br/>
+                    &#10003; Replace <code>/odoo</code> in URLs with your own word (old links redirect with 301)
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 8. PROFILES -->
+    <div style="padding:36px 0;border-bottom:1px solid #F3F4F6;">
+        <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;">08 &middot; PROFILES</div>
+        <h3 style="font-size:26px;font-weight:800;color:#111827;margin:6px 0 10px;">One profile per role &ndash; for users, groups and companies</h3>
+        <p style="font-size:16px;line-height:1.7;color:#4B5563;margin:0 0 18px;">Create as many profiles as you need: a restricted sales team, a read-only auditor, rules for a whole user group limited to one company, a site-wide white label&hellip; Leave &ldquo;Companies&rdquo; empty to apply everywhere. Users not covered by any profile are not affected at all.</p>
+        <img src="assets/screenshots/img02_profile_list.png" style="width:100%;border-radius:10px;border:1px solid #E5E7EB;"/>
+    </div>
+
+    <!-- ============ COMPARISON ============ -->
+    <div style="padding:44px 0 20px;">
+        <h2 style="text-align:center;font-size:32px;font-weight:800;color:#111827;margin:0 0 26px;">Native Odoo vs. Access Manage Studio</h2>
+        <div style="overflow-x:auto;">
+        <table style="width:100%;border-collapse:collapse;font-size:15px;min-width:560px;">
+            <tr style="background:#111827;color:#fff;">
+                <th style="padding:12px 14px;text-align:left;">Need</th>
+                <th style="padding:12px 14px;text-align:center;">Native Odoo</th>
+                <th style="padding:12px 14px;text-align:center;background:#017E84;">Access Manage Studio</th></tr>
+            <tr style="border-bottom:1px solid #E5E7EB;"><td style="padding:11px 14px;">Hide a menu for one user</td><td style="text-align:center;color:#B91C1C;">Groups + XML</td><td style="text-align:center;color:#047857;font-weight:700;">&#10003; Click</td></tr>
+            <tr style="border-bottom:1px solid #E5E7EB;background:#F9FAFB;"><td style="padding:11px 14px;">Hide / read-only a single field</td><td style="text-align:center;color:#B91C1C;">Developer</td><td style="text-align:center;color:#047857;font-weight:700;">&#10003; Click</td></tr>
+            <tr style="border-bottom:1px solid #E5E7EB;"><td style="padding:11px 14px;">Hide a button, smart button or tab</td><td style="text-align:center;color:#B91C1C;">Developer</td><td style="text-align:center;color:#047857;font-weight:700;">&#10003; Click</td></tr>
+            <tr style="border-bottom:1px solid #E5E7EB;background:#F9FAFB;"><td style="padding:11px 14px;">Block export / import per model</td><td style="text-align:center;color:#B91C1C;">&#10007;</td><td style="text-align:center;color:#047857;font-weight:700;">&#10003;</td></tr>
+            <tr style="border-bottom:1px solid #E5E7EB;"><td style="padding:11px 14px;">Hide filters, group-bys, view types</td><td style="text-align:center;color:#B91C1C;">&#10007;</td><td style="text-align:center;color:#047857;font-weight:700;">&#10003;</td></tr>
+            <tr style="border-bottom:1px solid #E5E7EB;background:#F9FAFB;"><td style="padding:11px 14px;">Hide reports &amp; actions per user</td><td style="text-align:center;color:#B91C1C;">&#10007;</td><td style="text-align:center;color:#047857;font-weight:700;">&#10003;</td></tr>
+            <tr style="border-bottom:1px solid #E5E7EB;"><td style="padding:11px 14px;">Block chatter messages / activities</td><td style="text-align:center;color:#B91C1C;">&#10007;</td><td style="text-align:center;color:#047857;font-weight:700;">&#10003;</td></tr>
+            <tr style="border-bottom:1px solid #E5E7EB;background:#F9FAFB;"><td style="padding:11px 14px;">Disable developer mode per user</td><td style="text-align:center;color:#B91C1C;">&#10007;</td><td style="text-align:center;color:#047857;font-weight:700;">&#10003;</td></tr>
+            <tr style="border-bottom:1px solid #E5E7EB;"><td style="padding:11px 14px;">Block XML-RPC / JSON-RPC per user</td><td style="text-align:center;color:#B91C1C;">&#10007;</td><td style="text-align:center;color:#047857;font-weight:700;">&#10003;</td></tr>
+            <tr style="border-bottom:1px solid #E5E7EB;background:#F9FAFB;"><td style="padding:11px 14px;">Deny login without archiving the user</td><td style="text-align:center;color:#B91C1C;">&#10007;</td><td style="text-align:center;color:#047857;font-weight:700;">&#10003;</td></tr>
+            <tr style="border-bottom:1px solid #E5E7EB;"><td style="padding:11px 14px;">Complete White Label</td><td style="text-align:center;color:#B91C1C;">&#10007;</td><td style="text-align:center;color:#047857;font-weight:700;">&#10003;</td></tr>
+        </table>
+        </div>
+    </div>
+
+    <!-- ============ HOW IT WORKS ============ -->
+    <div style="padding:40px 0;">
+        <h2 style="text-align:center;font-size:32px;font-weight:800;color:#111827;margin:0 0 28px;">Up and running in 3 minutes</h2>
+        <div style="display:flex;flex-wrap:wrap;margin:0 -8px;">
+            <div style="flex:1 1 280px;margin:8px;text-align:center;padding:22px;border:1px solid #E5E7EB;border-radius:14px;">
+                <div style="width:46px;height:46px;line-height:46px;border-radius:50%;background:#017E84;color:#fff;font-weight:800;font-size:20px;margin:0 auto 12px;">1</div>
+                <div style="font-weight:700;font-size:17px;">Install</div>
+                <div style="font-size:14px;color:#6B7280;margin-top:6px;">Install the app. The <b>Access Manage Studio</b> menu appears for administrators.</div></div>
+            <div style="flex:1 1 280px;margin:8px;text-align:center;padding:22px;border:1px solid #E5E7EB;border-radius:14px;">
+                <div style="width:46px;height:46px;line-height:46px;border-radius:50%;background:#875A7B;color:#fff;font-weight:800;font-size:20px;margin:0 auto 12px;">2</div>
+                <div style="font-weight:700;font-size:17px;">Create a profile</div>
+                <div style="font-size:14px;color:#6B7280;margin-top:6px;">Choose users, groups and companies, then tick what to hide or block in each tab.</div></div>
+            <div style="flex:1 1 280px;margin:8px;text-align:center;padding:22px;border:1px solid #E5E7EB;border-radius:14px;">
+                <div style="width:46px;height:46px;line-height:46px;border-radius:50%;background:#017E84;color:#fff;font-weight:800;font-size:20px;margin:0 auto 12px;">3</div>
+                <div style="font-weight:700;font-size:17px;">Save &ndash; it&rsquo;s live</div>
+                <div style="font-size:14px;color:#6B7280;margin-top:6px;">Caches are cleared and affected users&rsquo; browsers refresh automatically. No restart.</div></div>
+        </div>
+    </div>
+
+    <!-- ============ TECH ============ -->
+    <div style="padding:20px 0 40px;">
+        <div style="background:#F9FAFB;border-radius:16px;padding:28px;">
+            <h3 style="font-size:22px;font-weight:800;color:#111827;margin:0 0 14px;">Built properly for Odoo 19</h3>
+            <div style="display:flex;flex-wrap:wrap;font-size:15px;line-height:1.9;color:#374151;">
+                <div style="flex:1 1 400px;padding-right:16px;">
+                    &#9679; Server-side enforcement at ORM level &ndash; not only CSS/JS hiding<br/>
+                    &#9679; Record rules generated as native Odoo <code>ir.rule</code> records<br/>
+                    &#9679; Field rules applied to embedded list/form sub-views as well<br/>
+                    &#9679; The superuser is never restricted &ndash; you cannot lock yourself out
+                </div>
+                <div style="flex:1 1 400px;">
+                    &#9679; Users without a profile are completely unaffected<br/>
+                                        &#9679; English &amp; Simplified Chinese included<br/>
+                    &#9679; Depends only on standard modules: web, mail, base_import, bus
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============ FAQ ============ -->
+    <div style="padding:10px 0 40px;">
+        <h2 style="text-align:center;font-size:32px;font-weight:800;color:#111827;margin:0 0 26px;">FAQ</h2>
+        <div style="border:1px solid #E5E7EB;border-radius:12px;padding:18px 20px;margin-bottom:12px;">
+            <div style="font-weight:700;font-size:16px;color:#111827;">Is it only hiding things in the interface?</div>
+            <div style="font-size:15px;color:#4B5563;line-height:1.7;margin-top:6px;">No. Model, field, record, chatter, import/export, module and API restrictions are checked on the server. Calling the method directly, opening a record by URL or using XML-RPC is refused.</div></div>
+        <div style="border:1px solid #E5E7EB;border-radius:12px;padding:18px 20px;margin-bottom:12px;">
+            <div style="font-weight:700;font-size:16px;color:#111827;">Does it replace Odoo&rsquo;s user groups?</div>
+            <div style="font-size:15px;color:#4B5563;line-height:1.7;margin-top:6px;">It works on top of them. Keep your groups for the basic rights and use profiles to restrict further &ndash; per user, per group or per company.</div></div>
+        <div style="border:1px solid #E5E7EB;border-radius:12px;padding:18px 20px;margin-bottom:12px;">
+            <div style="font-weight:700;font-size:16px;color:#111827;">Do I need to restart Odoo or ask users to log out?</div>
+            <div style="font-size:15px;color:#4B5563;line-height:1.7;margin-top:6px;">No. Changes apply immediately and the affected users&rsquo; browsers reload automatically.</div></div>
+        <div style="border:1px solid #E5E7EB;border-radius:12px;padding:18px 20px;margin-bottom:12px;">
+            <div style="font-weight:700;font-size:16px;color:#111827;">Does it work with Community and Enterprise?</div>
+            <div style="font-size:15px;color:#4B5563;line-height:1.7;margin-top:6px;">Yes, both editions of Odoo 19, on-premise and Odoo.sh.</div></div>
+            </div>
+
+    <!-- ============ CONTACT ============ -->
+    <div style="text-align:center;padding:40px 20px;margin-bottom:40px;background:#017E84;border-radius:18px;color:#fff;">
+        <h2 style="font-size:28px;font-weight:800;margin:0 0 10px;color:#fff;">Need help or a custom rule?</h2>
+        <p style="font-size:17px;margin:0 0 14px;color:#E6F4F4;">Free support for installation and configuration questions.</p>
+        <p style="font-size:18px;font-weight:700;margin:0;color:#fff;">&#9993; 18438630181@163.com</p>
+    </div>
+
+</div>
 </section>
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</body>
-</html>
